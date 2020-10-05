@@ -9,9 +9,20 @@ Rails.application.routes.draw do
     sessions: "customers/sessions",
   }
   namespace :admins do
+    resources :words
+    resources :customers, only[:edit, :update, :index, :show]
   end
 
   scope module: :public do
+    root 'homes#top'
+    get 'about' => 'homes#about'
+    get '/customers/mypage' => 'customers#show',as: 'mypage'
+    get '/customers/mypage/edit' => 'customers#edit', as: 'edit_customer'
+    patch '/customers/mypage' => 'customers#update', as: 'update_customer'
+    resources :words
+    resources :favorites, only[:create, :destroy]
+    resources :tests
+
   end
 
 end
