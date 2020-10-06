@@ -1,4 +1,6 @@
 class Word < ApplicationRecord
+    attachment :image
+    
     belongs_to :customer
     has_many :test_words
 

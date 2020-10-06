@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   }
   namespace :admins do
     resources :words
-    resources :customers, only[:edit, :update, :index, :show]
+    resources :customers, only: [:edit, :update, :index, :show]
   end
 
   scope module: :public do
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     get '/customers/mypage/edit' => 'customers#edit', as: 'edit_customer'
     patch '/customers/mypage' => 'customers#update', as: 'update_customer'
     resources :words
-    resources :favorites, only[:create, :destroy]
+    resources :favorites, only: [:create, :destroy]
     resources :tests
 
   end
