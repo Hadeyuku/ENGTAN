@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ENTAN</title>
+    <title>ENGTAN</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,7 +13,7 @@
     <% if admin_signed_in? %>
       <header class="admin_header">
         <div class="header-content">
-          <%= link_to 'エン単', admin_top_path, class: "logo" %>
+          <%= link_to image_tag("/assets/logo.jpg", class:"logo"), 'admin_top_path' %>
           <ul class="flex">
             <li><%= link_to '会員一覧', admin_customers_path %></li>
             <li><%= link_to '単語一覧', admin_words_path %></li>
@@ -31,7 +31,7 @@
     <% elsif customer_signed_in? %>
       <header>
         <div class="header-content">
-          <%= link_to 'エン単', root_path, class: "logo" %>
+          <%= link_to image_tag("/assets/logo.jpg", class:"logo"), 'mypage_path' %>        
           <ul class="flex">
             <p>ようこそ、<%= current_customer.first_name %>さん!</p>
             <li><%= link_to '単語登録', edit_word_path %></li>
@@ -44,7 +44,7 @@
     <% else %>
       <header>
         <div class="header-content">
-          <%= link_to 'エン単', root_path, class: "logo" %>
+          <%= link_to image_tag("/assets/logo.jpg", class:"logo"), 'root_path' %>
           <ul class="flex">
             <li><%= link_to 'About', about_path %></li>
             <li><%= link_to '新規登録', new_customer_registration_path %></li>
@@ -58,6 +58,6 @@
       <%= yield %>
     </main>
 
-    <footer>Copyright © ENTAN Inc. All Rights Reserved.</footer>
+    <footer>Copyright © ENGTAN Inc. All Rights Reserved.</footer>
   </body>
 </html>
