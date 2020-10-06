@@ -15,7 +15,10 @@
  */
  @import "bootstrap";
 
- nav{
+header{
+    width: 100%;
+}
+nav{
 border-bottom: 1px solid #ccc;
 }
 nav ul{
@@ -51,6 +54,10 @@ font-weight: bold;
 nav ul li.current a{
 border-bottom: 5px solid #00B0F0;
 color: #00B0F0;
+}
+.logo{
+    height: 80px;
+    width: 80px;
 }
 
 footer{

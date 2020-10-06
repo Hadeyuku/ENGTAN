@@ -46,26 +46,18 @@
       <header>
         <nav>
           <ul>
-            <li>
-              <a>                
-                <%= link_to image_tag("/assets/logo.png", class:"logo"), 'root_path' %>
-              </a>
+            <li>               
+                <%= link_to image_tag("/assets/logo.png", class:"logo"), '/' %>
             </li>
           
-            <li>
-              <a>
-                <%= link_to 'About', about_path %>
-              </a>
+            <li>              
+                <%= link_to 'About', about_path %>              
             </li>
-            <li>
-              <a>
-                <%= link_to '新規登録', new_customer_registration_path %>
-              </a>
+            <li>              
+                <%= link_to '新規登録', new_customer_registration_path %>              
             </li>
-            <li>
-              <a>
-                <%= link_to 'ログイン', new_customer_session_path %>
-              </a>
+            <li>              
+                <%= link_to 'ログイン', new_customer_session_path %>              
             </li>
           </ul>
         </nav>
