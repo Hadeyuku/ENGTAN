@@ -15,52 +15,50 @@
  */
  @import "bootstrap";
 
-header{
-    width: 100%;
-}
+//ヘッダー
 nav{
 border-bottom: 1px solid #ccc;
+    ul{
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    list-style-type: none;
+        li{
+        width: 200px;
+        border-right: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+            &:first-child{
+                border-left: 1px solid #ccc;
+                padding: 0;
+                margin-right:auto;
+            }
+            a{
+                display: block;
+                line-height: 100px;
+                margin:0 auto;
+                text-decoration: none;
+                color: #aaa;
+                &:hover{
+                    background-color:#F8E750;
+                    border-bottom: 5px solid #F8E750; 
+                }
+            }
+            .logo{
+                height: 80px;
+                width: 80px;
+            }
+            
+        }
+    }
 }
-nav ul{
-display: table;
-margin: 0 auto;
-padding: 0;
-width: 80%;
-text-align: center;
-list-style-type: none;
-}
-nav ul li{
-display: table-cell;
-min-width: 50px;
-border-right: 1px solid #ccc;
-}
-nav ul li:first-child{
-border-left: 1px solid #ccc;
-}
-nav ul li a{
-display: block;
-width: 100%;
-padding: 10px 0;
-text-decoration: none;
-color: #aaa;
-}
-nav ul li a:hover{
-background-color:#F8E750;
-border-bottom: 5px solid #F8E750;
-}
-nav ul li.current{
-font-weight: bold;
-}
-nav ul li.current a{
-border-bottom: 5px solid #00B0F0;
-color: #00B0F0;
-}
-.logo{
-    height: 80px;
-    width: 80px;
-}
+//ヘッダー
 
+//フッター
 footer{
      background-color: white;
      text-align: center;
+     padding-top: 30px;
  }
+//フッター
