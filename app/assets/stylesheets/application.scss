@@ -26,7 +26,7 @@ border-bottom: 1px solid #ccc;
     text-align: center;
     list-style-type: none;
         li{
-        width: 200px;
+        width: 150px;
         border-right: 1px solid #ccc;
         border-left: 1px solid #ccc;
             &:first-child{
@@ -39,7 +39,7 @@ border-bottom: 1px solid #ccc;
                 line-height: 100px;
                 margin:0 auto;
                 text-decoration: none;
-                color: #aaa;
+                color: navy;
                 &:hover{
                     background-color:#F8E750;
                     border-bottom: 5px solid #F8E750; 
