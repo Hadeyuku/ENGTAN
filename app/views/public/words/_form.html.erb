@@ -37,6 +37,10 @@
 				<span class="btn btn-file btn-info"><%= f.attachment_field :image %>画像選択</span>
 			</div>
             <%= f.hidden_field :customer_id, value: current_customer.id %>
+            <% if admin_signed_in? %>
+                <%= f.hidden_field :jenre, value: ENGTAN %>
+            <% end %>
+
 		</div>
 		<div class="flex align-center pl5">
 			<%= f.submit submit, class: "btn btn-primary" %>

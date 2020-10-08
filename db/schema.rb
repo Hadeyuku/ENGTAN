@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2020_10_05_062213) do
     t.string "memo", null: false
     t.string "image_id"
     t.integer "status", default: 0, null: false
+    t.integer "jenre", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

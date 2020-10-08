@@ -13,12 +13,20 @@ class Public::WordsController < ApplicationController
         
     end
 
+    def index
+        @words = Word.all
+    end
+
     def show
 
     end
 
     def edit
 
+    end
+
+    def update
+        @word.update(word_params) ? (redirect_to word_path(@word)) : (render :edit)
     end
 
     private

@@ -9,6 +9,7 @@ class CreateWords < ActiveRecord::Migration[5.2]
       t.string "memo", null: false
       t.string "image_id"
       t.integer "status", null: false, default: 0
+      t.integer "jenre", null: false, default: 0
       t.timestamps
     end
   end
