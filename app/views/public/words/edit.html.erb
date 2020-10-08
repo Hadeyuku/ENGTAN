@@ -1,0 +1,4 @@
+<section class="inner">
+	<h2 class="section-ttl"><%= @word.name %>の編集</h2>
+  <%= render 'form', word: @word, url: word_path(@word), submit: '更新' %>
+</section>
