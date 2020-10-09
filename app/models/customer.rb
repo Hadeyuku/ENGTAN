@@ -8,5 +8,5 @@ class Customer < ApplicationRecord
     has_many :tests
     has_many :favorites, dependent: :destroy
 
-    enum status: { 初心者: 0, 中級者: 1, 上級者: 2}
+    enum status: { novice: 0, intermidiate: 1, advanced: 2}
 end

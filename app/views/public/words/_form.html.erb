@@ -3,21 +3,21 @@
 		<table>
 			<thead>
 				<tr>
-					<th></th>	
+					<th>*は必須</th>	
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td><%= f.label :name, "単語" %></td>
+					<td><%= f.label :name, "*単語" %></td>
 					<td><%= f.text_field :name %></td>
 				</tr>
 				<tr>
-					<td><%= f.label :part_of_speech, "品詞" %></td>
-					<td><%= f.text_field :part_of_speech %></td>
+					<td><%= f.label :part_of_speech, "*品詞" %></td>
+					<td><%= f.select :part_of_speech, Word.part_of_speeches.keys.map {|k| [I18n.t("enums.word.part_of_speech.#{k}"), k]} %></td>
 				</tr>
 				<tr>
-					<td><%= f.label :meaning, "意味" %></td>
+					<td><%= f.label :meaning, "*意味" %></td>
 					<td><%= f.text_field :meaning %></td>
 				</tr>
 				<tr>
@@ -28,6 +28,14 @@
 					<td><%= f.label :memo, "メモ" %></td>
 					<td><%= f.text_area :memo, rows: 3 %></td>
 				</tr>
+                <tr>
+					<td><%= f.label :status, "ステータス" %></td>
+					<td><%= f.select :status, Word.statuses.keys.map {|k| [I18n.t("enums.word.status.#{k}"), k]} %></td>
+				</tr>
+                <tr>
+					<td><%= f.label :jenre, "ジャンル" %></td>
+					<td><%= f.select :jenre, Word.jenres.keys %></td>
+				</tr>
 			</tbody>
 		</table>
         <div>
@@ -37,9 +45,6 @@
 				<span class="btn btn-file btn-info"><%= f.attachment_field :image %>画像選択</span>
 			</div>
             <%= f.hidden_field :customer_id, value: current_customer.id %>
-            <% if admin_signed_in? %>
-                <%= f.hidden_field :jenre, value: ENGTAN %>
-            <% end %>
 
 		</div>
 		<div class="flex align-center pl5">

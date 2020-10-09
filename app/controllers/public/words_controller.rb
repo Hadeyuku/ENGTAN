@@ -9,7 +9,9 @@ class Public::WordsController < ApplicationController
     def create
         @word = Word.new(word_params)
         #binding.pry
-        @word.save ? (redirect_to word_path(@word.id)) : (render :new)
+        @word.save
+        redirect_to word_path(@word.id)
+        #? (redirect_to word_path(@word.id)) : (render :new)
         
     end
 
@@ -17,6 +19,7 @@ class Public::WordsController < ApplicationController
         all_words = current_customer.words + admin.words
         @words = all_words.page(params[:page]).per(20)
         @all_words_count = @words.count
+    end
 
     def show
 
@@ -33,7 +36,7 @@ class Public::WordsController < ApplicationController
     private
 
     def word_params
-      params.require(:word).permit(:name, :part_of_speech, :meaning, :sentence, :memo, :image, :customer_id)
+      params.require(:word).permit(:name, :part_of_speech, :meaning, :sentence, :memo, :image, :customer_id, :status, :jenre)
     end
     
     def ensure_word

@@ -5,7 +5,6 @@
 			<th>品詞</th>
 			<th>意味</th>
 			<th>例文</th>
-			<th>意味</th>
 			<th>メモ</th>
 			<th>イメージ画像</th>
 			<th>ステータス</th>
@@ -17,16 +16,14 @@
 		<% words.each do |word| %>
 			<tr>
 				<td ><%= link_to word.name %></td>
-				<td><%= link_to word.part_of_speech, words_path(word) %></td>
-				<td ><%= word.price %>円</td>
-				<td><%= link_to word.genre.name, admin_words_path(genre_id: word.genre_id) %></td>
-				<td>
-					<% if word.is_active? %>
-						<span class="text-active">販売中</span>
-					<% else %>
-						<span class="text-invalid">販売停止中</span>
-					<% end %>
-				</td>
+				<td><%= link_to word.part_of_speech, words_path(word.part_of_speech) %></td>
+				<td ><%= word.meaning %>円</td>
+				<td><%= word.sentence %></td>
+				<td><%= word.memo %></td>
+				<td><%= attachment_image_tag word, :image, format: "jpeg", id: "img_prev", fallback: "no-image.png", size:'100x100'%></td>
+                <td><%= word.status %></td>
+                <td><%= word.favorite %></td>
+                <td><%= word.jenre %></td>
 			</tr>
 		<% end %>
 	</tbody>

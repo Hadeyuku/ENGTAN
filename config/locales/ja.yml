@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+  enums:
+    word:
+      part_of_speech:
+        noun: 名詞
+        verb: 動詞
+        adjective: 形容詞
+        adverb: 副詞
+        preposition: 前置詞
+        conjunction: 接続詞
+        pronoun: 代名詞
+        interjection: 間投詞
+      status:
+        registered: 新規
+        ongoing: 暗記中
+        complete: 完了
+    customer:
+      status:
+        novice: 初心者
+        intermidiate: 中級者
+        advanced: 上級者
