@@ -3,8 +3,8 @@ class Word < ApplicationRecord
     
     belongs_to :customer
     has_many :test_words
-    belongs_to :favorite
-    belongs_to :admin
+    belongs_to :favorite, optional: true
+    belongs_to :admin, optional: true
 
 
     enum part_of_speech: { noun: 0, verb: 1, adjective: 2, adverb: 3, preposition: 4, conjunction: 5, pronoun: 6, interjection: 7 }
