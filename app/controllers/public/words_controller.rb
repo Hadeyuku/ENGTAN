@@ -14,8 +14,9 @@ class Public::WordsController < ApplicationController
     end
 
     def index
-        @words = Word.all
-    end
+        all_words = current_customer.words + admin.words
+        @words = all_words.page(params[:page]).per(20)
+        @all_words_count = @words.count
 
     def show
 
