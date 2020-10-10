@@ -34,8 +34,7 @@ border-bottom: 1px solid #ccc;
                 padding: 0;
                 margin-right:auto;
             }
-            &:nth-child(2){
-                border-left: 0px none;
+            &:nth-child(6){
                 width: 250px;
                 display: flex;
                 align-items: flex-end;
@@ -68,3 +67,56 @@ footer{
      padding-top: 30px;
  }
 //フッター
+
+//テーブル共通<table class="table-common">になってるもの
+.table-common{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px auto;
+    
+  
+    tr{
+        border-bottom: solid 2px white;
+        &:last-child{
+            border-bottom: none;
+        }
+    
+        th{
+            position: relative;
+            text-align: left;
+            width: 30%;
+            background-color: #85d3dd;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            &:after{
+                display: block;
+                content: "";
+                width: 0px;
+                height: 0px;
+                position: absolute;
+                top:calc(50% - 10px);
+                right:-10px;
+                border-left: 10px solid #52c2d0;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+            }
+        }
+      
+        td{
+            text-align: left;
+            width: 70%;
+            text-align: center;
+            background-color: #eee;
+            padding: 10px 0;
+        }
+    }
+}
+//テーブル共通
+
+//align-centerで中央寄せにする
+.flex {display: flex;}
+.align-center {
+    justify-content: center;
+}
+//align-centerで中央寄せにする

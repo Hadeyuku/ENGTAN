@@ -1,3 +1,53 @@
 // Place all the styles related to the public::words controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#index{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px auto;    
+    thead{
+        tr{
+            border-bottom: solid 2px white;
+            text-align: center;
+            &:last-child{
+                border-bottom: none;
+            }
+            th{
+                background-color: #85d3dd;
+                color: white;
+                height: 50px;
+                text-align: center; 
+                &:after{
+                    display: block;
+                    content: "";
+                    text-align: center; 
+                    width: 0px;
+                    height: 0px;
+                    position: absolute;
+                    top:calc(50% - 10px);
+                    right:-10px;
+                    border-left: 10px solid #52c2d0;
+                    border-top: 10px solid transparent;
+                    border-bottom: 10px solid transparent;
+                }                                  
+            } 
+        }
+    }
+    tbody{
+        text-align: center;
+        tr{
+            border-bottom: solid 2px white;
+            text-align: center;
+            &:last-child{
+                border-bottom: none;
+            }
+            td{
+                text-align: center;
+                background-color: #eee;
+                height: 50px;
+            }
+        }
+    }
+}
+

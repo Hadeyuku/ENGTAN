@@ -1,6 +1,6 @@
 <%= form_for(word, url: url) do |f| %>
-	<div class="flex">
-		<table>
+	<div>
+		<table class="table-common">
 			<thead>
 				<tr>
 					<th>*は必須</th>	
@@ -28,6 +28,10 @@
 					<td><%= f.label :memo, "メモ" %></td>
 					<td><%= f.text_area :memo, rows: 3 %></td>
 				</tr>
+				<tr>
+					<td><%= f.label :image, "画像" %></td>
+					<td><%= f.attachment_field :image %>画像選択</td>
+				</tr>
                 <tr>
 					<td><%= f.label :status, "ステータス" %></td>
 					<td><%= f.select :status, Word.statuses.keys.map {|k| [I18n.t("enums.word.status.#{k}"), k]} %></td>
@@ -38,16 +42,9 @@
 				</tr>
 			</tbody>
 		</table>
-        <div>
-			<%= f.label :image, "画像" %>
-			<div class="image_field">
-				<%= attachment_image_tag word, :image, format: "jpeg", id: "img_prev", fallback: "no-image.png"%>
-				<span class="btn btn-file btn-info"><%= f.attachment_field :image %>画像選択</span>
-			</div>
             <%= f.hidden_field :customer_id, value: current_customer.id %>
-
 		</div>
-		<div class="flex align-center pl5">
+		<div class="flex align-center">
 			<%= f.submit submit, class: "btn btn-primary" %>
 		</div>
 	</div>

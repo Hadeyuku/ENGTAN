@@ -1,7 +1,5 @@
-<section class="wrapper flex">
-	<div class="inner">
-		<h2 class="section-ttl">単語一覧 (全<%= @all_words_count %>件)</h2>
-		<%= render 'index', words: @words %>
-		<%= paginate @words %>
-	</div>
-</section>
+<div class="inner">
+    <h2 class="section-ttl">単語一覧 (全<%= @all_words_count %>件)</h2>
+    <%= render 'index', words: @words %>
+    <%= paginate @words %>
+</div>
