@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
+@import "bootstrap";
 
 //ヘッダー
 nav{
@@ -34,7 +34,7 @@ border-bottom: 1px solid #ccc;
                 padding: 0;
                 margin-right:auto;
             }
-            &:nth-child(6){
+            &:nth-child(7){
                 width: 250px;
                 display: flex;
                 align-items: flex-end;
@@ -62,10 +62,10 @@ border-bottom: 1px solid #ccc;
 
 //フッター
 footer{
-     background-color: white;
-     text-align: center;
-     padding-top: 30px;
- }
+    background-color: white;
+    text-align: center;
+    padding-top: 30px;
+}
 //フッター
 
 //テーブル共通<table class="table-common">になってるもの

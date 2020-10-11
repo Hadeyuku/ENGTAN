@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :words
     resources :favorites, only: [:create, :destroy]
     resources :tests
+    post '/test/:id/start' => 'test#start', as: 'start_test'
+    post '/test/:id/confirm' => 'test#confirm', as: 'confirm_test'
 
   end
 

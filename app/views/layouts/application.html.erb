@@ -38,6 +38,7 @@
             <li><%= link_to image_tag("/assets/logo.png", class:"logo"), 'mypage_path' %></li>
             <li><%= link_to 'Registration', new_word_path %></li>
             <li><%= link_to 'Index', words_path %></li>
+            <li><%= link_to 'Test', new_test_path %></li>
             <li><%= link_to 'My page', mypage_path %></li>
             <li><%= link_to 'Log out', destroy_customer_session_path, method: :delete %></li>
             <li><h4>ようこそ、<%= current_customer.first_name %>さん!</h4></li>
