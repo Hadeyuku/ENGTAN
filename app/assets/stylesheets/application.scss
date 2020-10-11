@@ -114,9 +114,20 @@ footer{
 }
 //テーブル共通
 
-//align-centerで中央寄せにする
+//flexboxに対応させる
 .flex {display: flex;}
+//flexboxに対応させる
+
+
+//中央寄せにする
+
 .align-center {
     justify-content: center;
 }
-//align-centerで中央寄せにする
+//中央寄せにする
+
+//左右寄せにする
+.space-between{
+    justify-content: space-between;
+}
+//左右寄せにする

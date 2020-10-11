@@ -16,8 +16,16 @@ class Public::WordsController < ApplicationController
     end
 
     def index
-        all_words = current_customer.words
-        @words = all_words.page(params[:page]).per(20)
+        all_words = Word.where(jenre: 'ENGTAN').or(Word.where(id: current_customer.words.pluck(:id)))
+        if params[:part_of_speech]
+            @words =all_words.where(part_of_speech: params[:part_of_speech]).page(params[:page]).per(20)
+        elsif params[:status]
+            @words =all_words.where(status: params[:status]).page(params[:page]).per(20)
+        elsif params[:jenre]
+            @words =all_words.where(jenre: params[:jenre]).page(params[:page]).per(20)
+        else
+            @words = all_words.page(params[:page]).per(20)
+        end
         @all_words_count = @words.count
     end
 
@@ -36,7 +44,7 @@ class Public::WordsController < ApplicationController
     private
 
     def word_params
-      params.require(:word).permit(:name, :part_of_speech, :meaning, :sentence, :memo, :image, :customer_id, :status, :jenre)
+        params.require(:word).permit(:name, :part_of_speech, :meaning, :sentence, :memo, :image, :customer_id, :status, :jenre)
     end
     
     def ensure_word

@@ -1,3 +1,7 @@
+<div class="flex space-between word-index">
+	<h2>単語一覧 (全<%= @all_words_count %>件)</h2>
+	<h4><%= link_to "条件クリア", words_path, class: "btn btn-primary", remote: true %></h4>
+</div>
 <table id="index">
 	<thead>
 		<tr>
@@ -15,15 +19,15 @@
 	<tbody>
 		<% words.each do |word| %>
 			<tr>
-				<td ><%= link_to word.name %></td>
-				<td><%= link_to word.part_of_speech_i18n, words_path(word.part_of_speech) %></td>
+				<td ><%= link_to word.name, word_path(word.id) %></td>
+				<td><%= link_to word.part_of_speech_i18n, words_path(part_of_speech: word.part_of_speech), remote: true %></td>
 				<td ><%= word.meaning %></td>
 				<td><%= word.sentence %></td>
 				<td><%= word.memo %></td>
 				<td><%= attachment_image_tag word, :image, format: "jpeg", id: "img_prev", fallback: "no-image.png", size:'100x100'%></td>
-                <td><%= word.status_i18n %></td>
+                <td><%= link_to word.status_i18n, words_path(status: word.status), remote: true  %></td>
                 <td><%= word.favorite %></td>
-                <td><%= word.jenre %></td>
+                <td><%= link_to word.jenre, words_path(jenre: word.jenre), remote: true %></td>
 			</tr>
 		<% end %>
 	</tbody>
