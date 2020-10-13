@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     patch '/customers/mypage' => 'customers#update', as: 'update_customer'
     resources :words
     resources :favorites, only: [:create, :destroy]
+    resources :test_words, only: [:new, :create]
     resources :tests
     post '/test/:id/start' => 'test#start', as: 'start_test'
     post '/test/:id/confirm' => 'test#confirm', as: 'confirm_test'
