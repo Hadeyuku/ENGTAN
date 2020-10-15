@@ -20,8 +20,9 @@ Rails.application.routes.draw do
     get '/customers/mypage' => 'customers#show',as: 'mypage'
     get '/customers/mypage/edit' => 'customers#edit', as: 'edit_customer'
     patch '/customers/mypage' => 'customers#update', as: 'update_customer'
-    resources :words
-    resources :favorites, only: [:create, :destroy]
+    resources :words do
+      resource :favorites, only: [:create, :destroy]
+    end
     resources :test_words, only: [:new, :create]
     resources :tests
     post '/test/:id/start' => 'test#start', as: 'start_test'

@@ -26,7 +26,23 @@
 				<td><%= word.memo %></td>
 				<td><%= attachment_image_tag word, :image, format: "jpeg", id: "img_prev", fallback: "no-image.png", size:'100x100'%></td>
                 <td><%= link_to word.status_i18n, words_path(status: word.status), remote: true  %></td>
-                <td><%= word.favorite %></td>
+                <td>
+					<% if word.favorited_by?(current_customer) %>
+					<li class="favorite-btn">
+					<%= link_to word_favorites_path(word), method: :delete do %>
+						<i class="fa fa-hand-paper" aria-hidden="true" style="color: red;"></i>
+						<%= word.favorites.count %> 
+					<% end %>
+					</li>
+					<% else %>
+					<li class="favorite-btn"> 
+					<%= link_to word_favorites_path(word), method: :post do %>
+						<i class="fa fa-hand-paper" aria-hidden="true"></i>
+						<%= word.favorites.count %> 
+					<% end %>
+					</li>
+					<% end %>
+				</td>
                 <td><%= link_to word.jenre, words_path(jenre: word.jenre), remote: true %></td>
 			</tr>
 		<% end %>

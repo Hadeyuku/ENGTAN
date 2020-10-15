@@ -3,15 +3,12 @@ class Public::WordsController < ApplicationController
     before_action :ensure_word, only: [:show, :edit, :update]
 
     def new
-       @word = Word.new 
+        @word = Word.new 
     end
 
     def create
         @word = Word.new(word_params)
-        #binding.pry
-        @word.save
-        redirect_to word_path(@word.id)
-        #? (redirect_to word_path(@word.id)) : (render :new)
+        @word.save ? (redirect_to word_path(@word.id)) : (render :new)
         
     end
 

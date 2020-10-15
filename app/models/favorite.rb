@@ -1,4 +1,4 @@
 class Favorite < ApplicationRecord
     belongs_to :customer
-    has_many :words
+    belongs_to :word
 end
