@@ -1,0 +1,11 @@
+<% if word.favorited_by?(current_customer) %>
+    <%= link_to word_favorites_path(word.id), method: :delete, remote: true do %>
+        <i class="fa fa-hand-paper" aria-hidden="true" style="color: red;"></i>
+        <%= word.favorites.count %> 
+    <% end %>
+<% else %> 
+    <%= link_to word_favorites_path(word.id), method: :post, remote: true do %>
+        <i class="fa fa-hand-paper" aria-hidden="true"></i>
+        <%= word.favorites.count %> 
+    <% end %>
+<% end %>
