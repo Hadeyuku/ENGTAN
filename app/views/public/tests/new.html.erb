@@ -8,7 +8,7 @@
                 <label><%= radio_button_tag :select_jenre, 'ENGTAN', :checked => true %>ENGTAN</label>
                 <label><%= radio_button_tag "select_jenre", 'SELFTAN' %>SELFTAN</label>    
             <h3>ステータス</h3>
-                <label><%= radio_button_tag :select_status, 0, :checked => true %>新規（登録したばかりの単語）</label>
+                <label><%= radio_button_tag :select_status, 0, :checked => true %>新規</label>
                 <label><%= radio_button_tag "select_status", 1%>暗記中</label>
             <h3>単語数</h3>
                 <%= f.radio_button :quantity, 10, :checked => true %>
