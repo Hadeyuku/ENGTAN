@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2020_10_05_062213) do
 
   create_table "test_words", force: :cascade do |t|
     t.integer "word_id", null: false
-    t.integer "customer_id", null: false
     t.integer "test_id", null: false
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
