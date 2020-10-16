@@ -4,18 +4,8 @@ class Public::TestsController < ApplicationController
         @test = Test.new
     end
 
-    def create
-        @test = Test.new(test_params)
-        #binding.pry
-        if @test.save
-            redirect_to start_test_path(@test.id)
-        else
-            render :new
-        end
-
-    end
-
     def start
+        @test = Test.new(test_params)
         if params[:select_status] == '0' && params[:quantity] == '10'
         @words = Word.where(status: 'registered').order("RANDOM()").limit(10)
             if params[:select_jenre] == 'ENGTAN'
@@ -57,6 +47,17 @@ class Public::TestsController < ApplicationController
             end
         end
         
+    end
+
+    def create
+        @test = Test.new(test_params)
+        #binding.pry
+        if @test.save
+            redirect_to start_test_path(@test.id)
+        else
+            render :new
+        end
+
     end
     
     private
