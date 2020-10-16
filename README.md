@@ -21,22 +21,12 @@
 - プログラミングで学んだ英単語を日常生活に活かしたいエンジニア
 
 ### 主な利用シーン
-- プログラミング中に出会ったわからない単語を意味や例文、イメージ画像とともにサイトに登録し、ストックしていきます。２回テストで合格しないと完了のステータスに変更できないようにしてあります。
-- 運営側で用意してあるエンジニアのための単語を覚える。
+- プログラミング中に出会ったわからない単語を意味や例文、イメージ画像とともにサイトに登録し、ストックしていきます。その単語をテストし、暗記します。
+- 運営側で用意してあるエンジニアのための単語を覚えられます。
 
 ## 設計書
-- UIフロー図　（タブで顧客側と管理者側を分けてあります。）    
-https://drive.google.com/file/d/176_kjKcTApZ-RxpxlVWK7iTlXyCwshst/view?usp=sharing
-
-- Wireframe図  
-顧客側：https://drive.google.com/file/d/1VzJT6der3CRimGVnbJtr0ueB2vEwd4R8/view?usp=sharing  
-管理者側：https://drive.google.com/file/d/1zawalvHOuATJEhVAM-RXD7SlYTPKgPgY/view?usp=sharing
-
 - ER図  
 https://drive.google.com/file/d/19Iwpi8PXzVctSwLU_ljvxSH5I4_WdZsJ/view?usp=sharing
-
-- テーブル定義書、アプリケーション詳細設計書
-https://docs.google.com/spreadsheets/d/1rtnZWXEtFev8ZYPKyCO3wIMvp7w2BlVZXkqTE5eKn8w/edit?usp=sharing
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1jeb4H5HO48qfAOuVKBybxDxyuuvNOkRtnPqEANiu8Tg/edit?usp=sharing
