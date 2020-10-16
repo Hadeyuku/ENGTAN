@@ -5,24 +5,33 @@ class Public::TestsController < ApplicationController
     end
 
     def create
-        @test = current_customer.tests.new(test_params)
+        @test = Test.new(test_params)
+        #binding.pry
+        if @test.save
+            redirect_to start_test_path(@test.id)
+        else
+            render :new
+        end
 
+    end
+
+    def start
         if params[:select_status] == '0' && params[:quantity] == '10'
         @words = Word.where(status: 'registered').order("RANDOM()").limit(10)
             if params[:select_jenre] == 'ENGTAN'
-                @words = words.where(jenre: 'ENGTAN')
+                @select_words = @words.where(jenre: 'ENGTAN')
             elsif params[:select_jenre] == 'SELFTAN' 
-                @words = words.where(jenre: 'SELTAN')
+                @select_words = @words.where(jenre: 'SELFTAN')
             else 
                 @words
             end
-        
+            
         elsif params[:select_status] == '0' && params[:quantity] == '50'
         @words = Word.where(status: 'registered').order("RANDOM()").limit(50)
             if params[:select_jenre] == 'ENGTAN'
-                @words = words.where(jenre: 'ENGTAN')
+                @select_words = @words.where(jenre: 'ENGTAN')
             elsif params[:select_jenre] == 'SELFTAN' 
-                @words = words.where(jenre: 'SELTAN')
+                @select_words = @words.where(jenre: 'SELFTAN')
             else 
                 @words
             end
@@ -30,9 +39,9 @@ class Public::TestsController < ApplicationController
         elsif params[:select_status] == '1' && params[:quantity] == '10'
         @words = Word.where(status: 'ongoing').order("RANDOM()").limit(10)
             if params[:select_jenre] == 'ENGTAN'
-                @words = words.where(jenre: 'ENGTAN')
+                @select_words = @words.where(jenre: 'ENGTAN')
             elsif params[:select_jenre] == 'SELFTAN' 
-                @words = words.where(jenre: 'SELTAN')
+                @select_words = @words.where(jenre: 'SELFTAN')
             else 
                 @words
             end
@@ -40,22 +49,20 @@ class Public::TestsController < ApplicationController
         else 
         @words = Word.where(status: 'ongoing').order("RANDOM()").limit(50)
             if params[:select_jenre] == 'ENGTAN'
-                @words = words.where(jenre: 'ENGTAN')
+                @select_words = @words.where(jenre: 'ENGTAN')
             elsif params[:select_jenre] == 'SELFTAN' 
-                @words = words.where(jenre: 'SELTAN')
+                @select_words = @words.where(jenre: 'SELFTAN')
             else 
                 @words
             end
         end
-
-        @test.save
-
+        
     end
     
     private
 
     def test_params
-    params.require(:test).permit(:customer_id, :quantity)
+    params.require(:test).permit(:customer_id, :quantity, :true_quantity, :false_quantity)
     end
     
 end

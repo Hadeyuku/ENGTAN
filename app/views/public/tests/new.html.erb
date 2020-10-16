@@ -1,15 +1,26 @@
 <section class="inner">
-	<h2>注文情報入力</h2>
-	<%= form_for(@test, url: tests_path) do |f| %>
-		<h3>ジャンル</h3>
-            <label><%= radio_button_tag :select_jenre, 'ENGTAN', :checked => true %>ENGTAN</label>
-            <label><%= radio_button_tag "select_jenre", 'SELFTAN' %>SELFTAN</label>
-        <h3>ステータス</h3>
-            <label><%= radio_button_tag :select_status, 0, :checked => true %>新規（登録したばかりの単語）</label>
-            <label><%= radio_button_tag "select_status", 1%>暗記中</label>
-		<h3>単語数</h3>
-            <label><%= radio_button :quantity, 10, :checked => true %>10</label>
-            <label><%= radio_button "quantity", 50 %>50</label>
-		<%= f.submit "テスト開始", class: "btn btn-primary " %>
-	<% end %>
+    <div class="flex align-center">
+        <h2>テスト設定</h2>
+    </div>
+    <div class="flex align-center">
+        <%= form_for(@test, url: tests_path) do |f| %>
+            <h3>ジャンル</h3>
+                <label><%= radio_button_tag :select_jenre, 'ENGTAN', :checked => true %>ENGTAN</label>
+                <label><%= radio_button_tag "select_jenre", 'SELFTAN' %>SELFTAN</label>    
+            <h3>ステータス</h3>
+                <label><%= radio_button_tag :select_status, 0, :checked => true %>新規（登録したばかりの単語）</label>
+                <label><%= radio_button_tag "select_status", 1%>暗記中</label>
+            <h3>単語数</h3>
+                <%= f.radio_button :quantity, 10, :checked => true %>
+                <%= f.label :quantity, 10 %>
+                <%= f.radio_button :quantity, 50 %>
+                <%= f.label :quantity, 50 %>
+                <%= f.hidden_field :customer_id, value: current_customer.id %>
+                <%= f.hidden_field :true_quantity, value: 0 %>
+                <%= f.hidden_field :false_quantity, value: 0 %>
+            <div class="flex align-center">
+                <%= f.submit "テスト開始", class: "btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
 </section>

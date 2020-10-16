@@ -24,7 +24,7 @@
 				<td ><%= word.meaning %></td>
 				<td><%= word.sentence %></td>
 				<td><%= word.memo %></td>
-				<td><%= attachment_image_tag word, :image, format: "jpeg", id: "img_prev", fallback: "no-image.png", size:'100x100'%></td>
+				<td><%= attachment_image_tag word, :image, fallback: "no-image.png", size:'100x100'%></td>
                 <td><%= link_to word.status_i18n, words_path(status: word.status), remote: true  %></td>
                 <td id="likes_buttons_<%= word.id %>">
 					<%= render partial: 'public/favorites/favorite', locals: { word: word} %>

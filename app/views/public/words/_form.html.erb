@@ -30,19 +30,13 @@
 				</tr>
 				<tr>
 					<td><%= f.label :image, "画像" %></td>
-					<td><%= f.attachment_field :image %>画像選択</td>
-				</tr>
-                <tr>
-					<td><%= f.label :status, "ステータス" %></td>
-					<td><%= f.select :status, Word.statuses.keys.map {|k| [I18n.t("enums.word.status.#{k}"), k]} %></td>
-				</tr>
-                <tr>
-					<td><%= f.label :jenre, "ジャンル" %></td>
-					<td><%= f.select :jenre, Word.jenres.keys %></td>
+					<td><%= f.attachment_field :image %></td>
 				</tr>
 			</tbody>
 		</table>
             <%= f.hidden_field :customer_id, value: current_customer.id %>
+            <%= f.hidden_field :status, value: "registered" %>
+            <%= f.hidden_field :jenre, value: "SELFTAN" %>
 		</div>
 		<div class="flex align-center">
 			<%= f.submit submit, class: "btn btn-primary" %>
