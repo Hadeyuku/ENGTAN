@@ -3,7 +3,7 @@
         <h2>テスト設定</h2>
     </div>
     <div class="flex align-center">
-        <%= form_for(@test, url: tests_path) do |f| %>
+        <%= form_for(@test, url: start_test_path) do |f| %>
             <h3>ジャンル</h3>
                 <label><%= radio_button_tag :select_jenre, 'ENGTAN', :checked => true %>ENGTAN</label>
                 <label><%= radio_button_tag "select_jenre", 'SELFTAN' %>SELFTAN</label>    
