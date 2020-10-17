@@ -1,1 +1,10 @@
-<%= @words %>
+<section>
+    <%= form_tag(answer_test) do %>
+        <%= @words.each do |word|  %>
+            <%= word.name %>
+            <%= label_tag :意味 %>
+            <%= text_field_tag "content", :placeholder =>"意味" %>
+        <% end %>
+        <%= submit_tag 'Show an answer', class: "btn btn-primary" %>
+    <% end %>
+</section>

@@ -53,8 +53,8 @@ border-bottom: 1px solid #ccc;
                 }
             }
             .logo{
-                height: 80px;
-                width: 80px;
+                height: 100px;
+                width: 100px;
             }
             
         }
@@ -127,8 +127,25 @@ footer{
 }
 //中央寄せにする
 
+//右寄せにする
+.align-right{
+    justify-content: flex-end;
+}
+//右寄せにする
+
 //左右寄せにする
 .space-between{
     justify-content: space-between;
 }
 //左右寄せにする
+
+//ログインボタン上にスペースを空ける
+.btn-lg{
+    margin-top: 30px;
+}
+//ログインボタン上にスペースを空ける
+
+//ログインテーブルの上にスペース上げる
+.table-lg{
+    margin-top: 30px;
+}

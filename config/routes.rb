@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :test_words, only: [:new, :create]
     resources :tests
     post '/test/:id/start' => 'test#start', as: 'start_test'
-    post '/test/:id/confirm' => 'test#confirm', as: 'confirm_test'
+    post '/test/:id/answer' => 'test#answer', as: 'answer_test'
 
   end
 

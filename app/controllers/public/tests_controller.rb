@@ -49,6 +49,9 @@ class Public::TestsController < ApplicationController
         
     end
 
+    def answer
+    end
+
     def create
         @test = Test.new(test_params)
         #binding.pry
