@@ -17,15 +17,19 @@ Rails.application.routes.draw do
     root 'homes#top'
     get 'about' => 'homes#about'
     get 'profile' => 'homes#profile'
-    get '/customers/mypage' => 'customers#show',as: 'mypage'
-    get '/customers/mypage/edit' => 'customers#edit', as: 'edit_customer'
-    patch '/customers/mypage' => 'customers#update', as: 'update_customer'
+    get '/mypage' => 'customers#show',as: 'mypage'
+    get '/mypage/edit' => 'customers#edit', as: 'edit_customer'
+    patch '/mypage' => 'customers#update', as: 'update_customer'
     resources :words do
       resource :favorites, only: [:create, :destroy]
     end
     resources :test_words, only: [:new, :create]
-    resources :tests
-    post '/test/:id/start' => 'test#start', as: 'start_test'
+    resources :tests do
+      member do
+        get 'start'
+      end
+    end
+    #get '/test/:id/start' => 'test#start', as: 'start_test'
     post '/test/:id/answer' => 'test#answer', as: 'answer_test'
 
   end

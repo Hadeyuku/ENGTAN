@@ -29,7 +29,7 @@
                 <td id="likes_buttons_<%= word.id %>">
 					<%= render partial: 'public/favorites/favorite', locals: { word: word} %>
 				</td>
-                <td><%= link_to word.jenre, words_path(jenre: word.jenre), remote: true %></td>
+                <td><%= link_to word.genre, words_path(genre: word.genre), remote: true %></td>
 			</tr>
 		<% end %>
 	</tbody>

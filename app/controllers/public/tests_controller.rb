@@ -5,47 +5,53 @@ class Public::TestsController < ApplicationController
     end
 
     def start
-        @test = Test.new(test_params)
-        if params[:select_status] == '0' && params[:quantity] == '10'
-        @words = Word.where(status: 'registered').order("RANDOM()").limit(10)
-            if params[:select_jenre] == 'ENGTAN'
-                @select_words = @words.where(jenre: 'ENGTAN')
-            elsif params[:select_jenre] == 'SELFTAN' 
-                @select_words = @words.where(jenre: 'SELFTAN')
+        @test = Test.find(params[:id])
+        select_status = @test.status
+        select_genre = @test.genre
+        quantity = @test.quantity
+        #binding.pry
+        if select_status == 'registered' && quantity == 10
+        @words = Word.all.where(status: 'registered').order("RANDOM()").limit(10)
+            if select_genre == 'ENGTAN'
+                @select_words = @words.where(genre: 'ENGTAN')
+            elsif select_genre == 'SELFTAN' 
+                @select_words = @words.where(genre: 'SELFTAN')
             else 
-                @words
-            end
-            
-        elsif params[:select_status] == '0' && params[:quantity] == '50'
-        @words = Word.where(status: 'registered').order("RANDOM()").limit(50)
-            if params[:select_jenre] == 'ENGTAN'
-                @select_words = @words.where(jenre: 'ENGTAN')
-            elsif params[:select_jenre] == 'SELFTAN' 
-                @select_words = @words.where(jenre: 'SELFTAN')
-            else 
-                @words
+                @select_words = @words
             end
         
-        elsif params[:select_status] == '1' && params[:quantity] == '10'
-        @words = Word.where(status: 'ongoing').order("RANDOM()").limit(10)
-            if params[:select_jenre] == 'ENGTAN'
-                @select_words = @words.where(jenre: 'ENGTAN')
-            elsif params[:select_jenre] == 'SELFTAN' 
-                @select_words = @words.where(jenre: 'SELFTAN')
+            
+        elsif select_status == 'registered' && quantity == 50
+        @words = Word.all.where(status: 'registered').order("RANDOM()").limit(50)
+            if select_genre == 'ENGTAN'
+                @select_words = @words.where(genre: 'ENGTAN')
+            elsif select_genre == 'SELFTAN' 
+                @select_words = @words.where(genre: 'SELFTAN')
             else 
-                @words
+                @select_words = @words
+            end
+        
+        elsif select_status == 'ongoing' && quantity == 10
+        @words = Word.all.where(status: 'ongoing').order("RANDOM()").limit(10)
+            if select_genre == 'ENGTAN'
+                @select_words = @words.where(genre: 'ENGTAN')
+            elsif select_genre == 'SELFTAN' 
+                @select_words = @words.where(genre: 'SELFTAN')
+            else 
+                @select_words = @words
             end
         
         else 
-        @words = Word.where(status: 'ongoing').order("RANDOM()").limit(50)
-            if params[:select_jenre] == 'ENGTAN'
-                @select_words = @words.where(jenre: 'ENGTAN')
-            elsif params[:select_jenre] == 'SELFTAN' 
-                @select_words = @words.where(jenre: 'SELFTAN')
+        @words = Word.all.where(status: 'ongoing').order("RANDOM()").limit(50)
+            if select_genre == 'ENGTAN'
+                @select_words = @words.where(genre: 'ENGTAN')
+            elsif select_genre == 'SELFTAN' 
+                @select_words = @words.where(genre: 'SELFTAN')
             else 
-                @words
+                @select_words = @words
             end
         end
+
         
     end
 
@@ -54,7 +60,8 @@ class Public::TestsController < ApplicationController
 
     def create
         @test = Test.new(test_params)
-        #binding.pry
+        @test.customer_id = current_customer.id
+        
         if @test.save
             redirect_to start_test_path(@test.id)
         else
@@ -66,7 +73,7 @@ class Public::TestsController < ApplicationController
     private
 
     def test_params
-    params.require(:test).permit(:customer_id, :quantity, :true_quantity, :false_quantity)
+    params.require(:test).permit(:customer_id, :quantity, :true_quantity, :false_quantity, :genre, :status)
     end
     
 end
