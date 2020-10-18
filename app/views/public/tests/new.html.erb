@@ -9,8 +9,10 @@
                 <%= f.label :genre, 'ENGTAN' %>
                 <%= f.radio_button :genre, 'SELFTAN' %>
                 <%= f.label :genre, 'SELFTAN' %>
+                <%= f.radio_button :genre, 'random' %>
+                <%= f.label :genre, 'ランダム' %>
             <h3>ステータス</h3>
-                <%= f.radio_button :status, 'registered' %>
+                <%= f.radio_button :status, 'registered', :checked => true %>
                 <%= f.label :status, 'registered' %>
                 <%= f.radio_button :status, 'ongoing' %>
                 <%= f.label :status, 'ongoing' %>

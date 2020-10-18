@@ -1,5 +1,5 @@
 <section>
-    <%= form_with url: answer_test_path, method: :get, local: true do |f|%>
+    <%= form_for(answer_test_path) do %>
         <table class="table-common">
             <thead>
 				<tr>
@@ -9,16 +9,18 @@
 				</tr>
 			</thead>
             <tbody>
-                <% @select_words.each do |select_word|  %>
+                <% @words.each do |v|  %>
                     <tr>
-                        <td><%= select_word.name %></td>
-                        <td><%= f.text_field "user_input@#{select_word.name}" %></td>                                                  
+                        <td><%= v[0] %></td>
+                        <td><%= v[1] %></td>
+                        <td><%= v[2] %></td>
+                        <td><%#= text_field_tag "content", "", :placeholder =>"意味" %></td>
                     </tr>                
                 <% end %>
             </tbody>
         </table>
         <div class="flex align-center">
-            <%= f.submit 'Show an answer', class: "btn btn-primary" %>
+            <%= submit_tag 'Show an answer', class: "btn btn-primary" %>
         </div>
     <% end %>
 </section>

@@ -27,10 +27,10 @@ Rails.application.routes.draw do
     resources :tests do
       member do
         get 'start'
+        post 'answer'
+        get 'answer', to: 'tests#show'
       end
     end
-    #get '/test/:id/start' => 'test#start', as: 'start_test'
-    post '/test/:id/answer' => 'test#answer', as: 'answer_test'
 
   end
 
