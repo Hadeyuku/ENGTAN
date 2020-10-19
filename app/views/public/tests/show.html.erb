@@ -1,11 +1,11 @@
 <section>
-    <%= form_for(answer_test_path) do %>
-        <table class="table-common">
+    <%= form_with url: result_test_path, method: :get, local: true do |f| %>
+        <table class="index">
             <thead>
 				<tr>
 					<th>単語</th>	
-					<th>解答欄</th>
-                    <th></th>
+					<th>解答</th>
+                    <th>答え</th>
 				</tr>
 			</thead>
             <tbody>
@@ -14,13 +14,12 @@
                         <td><%= v[0] %></td>
                         <td><%= v[1] %></td>
                         <td><%= v[2] %></td>
-                        <td><%#= text_field_tag "content", "", :placeholder =>"意味" %></td>
                     </tr>                
                 <% end %>
             </tbody>
         </table>
         <div class="flex align-center">
-            <%= submit_tag 'Show an answer', class: "btn btn-primary" %>
+            <%= f.submit 'Submit a result', class: "btn btn-primary" %>
         </div>
     <% end %>
 </section>

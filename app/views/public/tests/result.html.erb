@@ -1,0 +1,25 @@
+<div class="container profile">
+    <div class="row">
+        <div class="col-lg-4">
+            <h3>結果</h3>
+            <table class="table-common">
+                <tr>
+                    <th>問題数</th>
+                    <td><%= @test.quantity %></td>
+                </tr>
+                <tr>
+                    <th>正解数</th>
+                    <td><%= @test.true_quantity %></td>
+                </tr>
+                <tr>
+                    <th>正答率</th>
+                    <td><%= @test.true_quantity.to_f/@test.quantity.to_f*100 %>%</td>
+                </tr>
+                <tr>
+                    <th>完了になった数</th>
+                    <td><%= @complete %></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div> 

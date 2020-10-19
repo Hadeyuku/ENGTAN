@@ -29,6 +29,7 @@ Rails.application.routes.draw do
         get 'start'
         post 'answer'
         get 'answer', to: 'tests#show'
+        get 'result'
       end
     end
 

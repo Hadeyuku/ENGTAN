@@ -1,5 +1,7 @@
 class Public::TestsController < ApplicationController
 
+    before_action :ensure_test, only: [:start, :show, :result]
+
     def new
         @test = Test.new
     end
@@ -17,7 +19,6 @@ class Public::TestsController < ApplicationController
     end
 
     def start
-        @test = Test.find(params[:id])
         select_status = @test.status
         select_genre = @test.genre
         quantity = @test.quantity
@@ -31,7 +32,8 @@ class Public::TestsController < ApplicationController
             else 
                 @select_words = @words
             end
-        
+        @test.update(quantity: @select_words.count)
+
         elsif select_status == 'registered' && quantity == 50
         @words = Word.all.where(status: 'registered').order("RANDOM()").limit(50)
             if select_genre == 'ENGTAN'
@@ -41,7 +43,8 @@ class Public::TestsController < ApplicationController
             else 
                 @select_words = @words
             end
-        
+        @test.update(quantity: @select_words.count)
+
         elsif select_status == 'ongoing' && quantity == 10
         @words = Word.all.where(status: 'ongoing').order("RANDOM()").limit(10)
             if select_genre == 'ENGTAN'
@@ -51,7 +54,8 @@ class Public::TestsController < ApplicationController
             else 
                 @select_words = @words
             end
-        
+        @test.update(quantity: @select_words.count)
+
         else 
         @words = Word.all.where(status: 'ongoing').order("RANDOM()").limit(50)
             if select_genre == 'ENGTAN'
@@ -61,13 +65,9 @@ class Public::TestsController < ApplicationController
             else 
                 @select_words = @words
             end
+        @test.update(quantity: @select_words.count)
+
         end
-
-    end
-
-    def answer
-        
-        redirect_to answer_test_path
         
     end
 
@@ -76,10 +76,9 @@ class Public::TestsController < ApplicationController
         request.params.each do |k, v | 
             if k.start_with?("user_input")
                 @answers << {k.split("@").last => v}
-                #  @select_words << k.split("@").last
-                # @ansewers << v
             end
         end
+
         @answer_words = Word.where(name: @answers.map(&:keys).flatten)
         @words = []
         @answer_words.each do |v|
@@ -88,18 +87,50 @@ class Public::TestsController < ApplicationController
                     @words << [v.name, k.values[0], v.meaning]
                 end
             end
-            
         end
+
+        true_quantity = 0
+        @words.each do |v|
+            @word = Word.find_by(name: v[0])
+            @test_word = TestWord.new
+            @test_word.word_id = Word.find_by(name: v[0]).id
+            @test_word.test_id = params[:id] 
+            @test_word.content = v[1]
+            if v[1] == v[2]
+                true_quantity += 1
+                @test_word.status = 'correct'
+                if @word.status == 'registered'
+                    @word.update(status: 'ongoing')
+                else
+                    @word.update(status: 'complete')
+                end
+            else
+                @test_word.status = 'uncorrect'
+            end
+            @test_word.save
+        end
+        @true_quantity = true_quantity
+
+        @test.customer_id = current_customer.id
+        @total_quantity = @test.quantity
+        @false_quantity = @total_quantity.to_i - @true_quantity.to_i
+        @test.update(true_quantity: @true_quantity, false_quantity: @false_quantity)
         
-        #redirect_to answer_test_path
+    end
+
+    def result
+        #@test_words = @test.test_words
+        
     end
     
     private
 
     def test_params
-        params.require(:test).permit(:customer_id, :quantity, :true_quantity, :false_quantity, :genre, :status, test_words_attributes: [:customer_id, :content])
+        params.require(:test).permit(:customer_id, :quantity, :true_quantity, :false_quantity, :genre, :status)
+    end
+
+    def ensure_test
+        @test = Test.find(params[:id])
     end
     
 end
-
-#ActionController::Parameters {"utf8"=>"✓", "user_input@book"=>"本", "user_input@laptop"=>"ノートパソコン", "user_input@study"=>"", "user_input@political"=>"", "user_input@phone"=>"", "user_input@sciencse"=>"", "user_input@register"=>"", "user_input@english"=>"", "user_input@train"=>"", "user_input@baseball"=>"", "commit"=>"Show an answer", "controller"=>"public/tests", "action"=>"show", "id"=>"47"} permitted: false>

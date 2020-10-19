@@ -2,5 +2,6 @@ class TestWord < ApplicationRecord
     belongs_to :word
     belongs_to :test, optional: true
 
-    enum status: { 正解: 0, 不正解: 1}
+    enum status: { correct: 0, uncorrect: 1}
+
 end
