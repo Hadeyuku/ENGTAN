@@ -25,7 +25,7 @@ ja:
         registered: 新規
         ongoing: 暗記中
         complete: 完了
-    TestWord:
+    test_word:
       status:
         correct: 正解
         uncorrect: 不正解

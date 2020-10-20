@@ -1,5 +1,5 @@
 <section>
-    <%= form_with url: result_test_path, method: :get, local: true do |f| %>
+    <%= form_with url: test_words_path, method: :get, local: true do |f| %>
         <table class="index">
             <thead>
 				<tr>
@@ -14,12 +14,14 @@
                         <td><%= v[0] %></td>
                         <td><%= v[1] %></td>
                         <td><%= v[2] %></td>
+                        <%= f.hidden_field :name, value: v[0] %>
                     </tr>                
                 <% end %>
             </tbody>
         </table>
         <div class="flex align-center">
             <%= f.submit 'Submit a result', class: "btn btn-primary" %>
+            <%= f.hidden_field :test_id, value: @test.id %>
         </div>
     <% end %>
 </section>

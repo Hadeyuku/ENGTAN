@@ -23,13 +23,12 @@ Rails.application.routes.draw do
     resources :words do
       resource :favorites, only: [:create, :destroy]
     end
-    resources :test_words, only: [:new, :create]
+    resources :test_words, only: [:new, :index, :create]
     resources :tests do
       member do
         get 'start'
         post 'answer'
         get 'answer', to: 'tests#show'
-        get 'result'
       end
     end
 

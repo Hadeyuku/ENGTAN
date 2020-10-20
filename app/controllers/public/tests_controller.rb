@@ -1,6 +1,6 @@
 class Public::TestsController < ApplicationController
 
-    before_action :ensure_test, only: [:start, :show, :result]
+    before_action :ensure_test, only: [:start, :show]
 
     def new
         @test = Test.new
@@ -118,11 +118,6 @@ class Public::TestsController < ApplicationController
         
     end
 
-    def result
-        #@test_words = @test.test_words
-        
-    end
-    
     private
 
     def test_params

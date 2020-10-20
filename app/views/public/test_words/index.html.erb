@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <h3>結果</h3>
+            <table class="table-common">
+                <tr>
+                    <th>問題数</th>
+                    <td><%= @test.quantity %></td>
+                </tr>
+                <tr>
+                    <th>正解数</th>
+                    <td><%= @test.true_quantity %></td>
+                </tr>
+                <tr>
+                    <th>正答率</th>
+                    <td><%= (@test.true_quantity.to_f/@test.quantity.to_f*100).round %>%</td>
+                </tr>
+                <tr>
+                    <th>完了になった数</th>
+                    <td><%= @complete_amount %></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+	<div class="row">
+		<div class="col-lg-12">
+			<h3>テスト単語一覧</h3>
+			<table class="index">
+				<thead>
+					<tr>
+						<th>単語</th>	
+						<th>解答</th>
+						<th>答え</th>
+						<th>正誤</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @test_words.each do |test_word|  %>
+						<tr>
+							<td><%= test_word.word.name %></td>
+							<td><%= test_word.content %></td>
+							<td><%= test_word.word.meaning %></td>
+							<td><%= test_word.status_i18n %></td>
+						</tr>                
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div> 
