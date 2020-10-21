@@ -1,6 +1,13 @@
 <div class="flex space-between word-index">
-	<h2>単語一覧 (全<%= @all_words_count %>件)</h2>
-	<h4><%= link_to "条件クリア", words_path, class: "btn btn-primary", remote: true %></h4>
+	<h3> (全<%= @all_words_count %>件)</h3>
+	<h4><%= link_to "Clear the conditions", words_path, class: "btn btn-primary", remote: true %></h4>
+</div>
+<div class="flex align-left">
+	<%= form_tag(search_path, method: :get) do %>
+		<%= text_field_tag "search[content]", "", :placeholder =>"単語 / 意味" %>
+		<%= select_tag "search[model]", options_for_select({ "単語" => "name", "意味" => "meaning" }) %>
+		<%= submit_tag 'Search', class: "btn btn-primary" %>
+	<% end %>
 </div>
 <table class="index">
 	<thead>

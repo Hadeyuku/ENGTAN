@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get '/mypage' => 'customers#show',as: 'mypage'
     get '/mypage/edit' => 'customers#edit', as: 'edit_customer'
     patch '/mypage' => 'customers#update', as: 'update_customer'
+    get 'search' => 'words#search'
     resources :words do
       resource :favorites, only: [:create, :destroy]
     end

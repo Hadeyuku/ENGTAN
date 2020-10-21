@@ -1,0 +1,8 @@
+<div class="inner">
+    <h2>検索結果</h2>
+    <% if @result.first %>
+        <div id="table"><%= render 'index', words: @result %></div>
+    <% else %>
+        <h3>見つかりませんでした。検索条件を変更して再度お試しください。</h3>
+    <% end %>
+</div>

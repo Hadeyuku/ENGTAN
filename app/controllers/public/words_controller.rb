@@ -38,6 +38,13 @@ class Public::WordsController < ApplicationController
         @word.update(word_params) ? (redirect_to word_path(@word)) : (render :edit)
     end
 
+    def search
+        @model = params['search']['model']
+        @content = params['search']['content']
+        @result = search_for(@model, @content)
+        @all_words_count = @result.count
+    end
+
     private
 
     def word_params
@@ -47,4 +54,14 @@ class Public::WordsController < ApplicationController
     def ensure_word
         @word = Word.find(params[:id])
     end
+
+    def search_for(model, content)
+        if model == 'name'
+            Word.where(name: content)
+        elsif model == 'meaning'
+            Word.where(name: content)
+        else
+          [] 
+        end
+      end
 end
