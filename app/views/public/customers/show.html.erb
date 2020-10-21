@@ -1,1 +1,83 @@
-<h1>映るかな</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+			<h3>ENGTAN</h3>
+			<table class="index">
+				<thead>
+					<tr>
+						<th>新規</th>	
+						<th>暗記中</th>
+						<th>完了</th>
+						<th>合計</th>
+					</tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td><%= @engtan_words.registered.count %></td>
+                        <td><%= @engtan_words.ongoing.count %></td>
+                        <td><%= @engtan_words.complete.count %></td>
+                        <td><%= @engtan_words.count %></td>
+                    </tr>                
+				</tbody>
+			</table>
+		</div>
+		<div class="col-lg-4">
+			<h3>SELFTAN</h3>
+			<table class="index">
+				<thead>
+					<tr>
+						<th>新規</th>	
+						<th>暗記中</th>
+						<th>完了</th>
+						<th>合計</th>
+					</tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td><%= @selftan_words.registered.count %></td>
+                        <td><%= @selftan_words.ongoing.count %></td>
+                        <td><%= @selftan_words.complete.count %></td>
+                        <td><%= @selftan_words.count %></td>
+                    </tr>                
+				</tbody>
+			</table>
+		</div>
+        <div class="col-lg-4">
+            <h3>合計</h3>
+			<table class="index">
+				<thead>
+					<tr>
+						<th>新規</th>	
+						<th>暗記中</th>
+						<th>完了</th>
+						<th>合計</th>
+					</tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td><%= @total_words.registered.count %></td>
+                        <td><%= @total_words.ongoing.count %></td>
+                        <td><%= @total_words.complete.count %></td>
+                        <td><%= @total_words.count %></td>
+                    </tr>                
+				</tbody>
+			</table>
+		</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>本日の英単語</h3>
+            <table class="table-common">
+                <% @words.each do |word| %>
+                    <%= link_to word_path(word) do %>
+                    <tr>
+                        <th><%= word.name %></th>	
+                        <td> <%= word.meaning %></td>
+                    </tr>
+                    <% end %>
+                <% end %>                              
+            </table>
+		</div>
+    </div>
+</div> 
+
