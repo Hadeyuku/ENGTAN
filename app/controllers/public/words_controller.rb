@@ -1,6 +1,6 @@
 class Public::WordsController < ApplicationController
 
-    before_action :ensure_word, only: [:show, :edit, :update]
+    before_action :ensure_word, only: [:show, :edit, :update, :destroy]
 
     def new
         @word = Word.new 
@@ -36,6 +36,11 @@ class Public::WordsController < ApplicationController
 
     def update
         @word.update(word_params) ? (redirect_to word_path(@word)) : (render :edit)
+    end
+
+    def destroy
+        @word.destroy
+        redirect_to words_path
     end
 
     def search

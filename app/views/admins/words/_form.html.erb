@@ -1,0 +1,45 @@
+<%= form_for(word, url: url) do |f| %>
+	<div>
+		<table class="table-common">
+			<thead>
+				<tr>
+					<th>*は必須</th>	
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= f.label :name, "*単語" %></td>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :part_of_speech, "*品詞" %></td>
+					<td><%= f.select :part_of_speech, Word.part_of_speeches.keys.map {|k| [I18n.t("enums.word.part_of_speech.#{k}"), k]} %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :meaning, "*意味" %></td>
+					<td><%= f.text_field :meaning %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :sentence, "例文" %></td>
+					<td><%= f.text_area :sentence, rows: 3 %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :memo, "メモ" %></td>
+					<td><%= f.text_area :memo, rows: 3 %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :image, "画像" %></td>
+					<td><%= f.attachment_field :image %></td>
+				</tr>
+			</tbody>
+		</table>
+			<%= f.hidden_field :customer_id, value: 1 %>
+            <%= f.hidden_field :status, value: "registered" %>
+            <%= f.hidden_field :genre, value: "ENGTAN" %>
+		</div>
+		<div class="flex align-center">
+			<%= f.submit submit, class: "btn btn-primary" %>
+		</div>
+	</div>
+<% end %>

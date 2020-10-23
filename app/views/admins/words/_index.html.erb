@@ -1,0 +1,39 @@
+<div class="flex space-between word-index">
+	<h3> (全<%= @all_words_count %>件)</h3>
+	<h4><%= link_to "Clear the conditions", admins_words_path, class: "btn btn-primary", remote: true %></h4>
+</div>
+<div class="flex align-left">
+	<%= form_tag(search_path, method: :get) do %>
+		<%= text_field_tag "search[content]", "", :placeholder =>"単語 / 意味" %>
+		<%= select_tag "search[model]", options_for_select({ "単語" => "name", "意味" => "meaning" }) %>
+		<%= submit_tag 'Search', class: "btn btn-primary" %>
+	<% end %>
+</div>
+<table class="index">
+	<thead>
+		<tr>
+			<th>単語</th>
+			<th>品詞</th>
+			<th>意味</th>
+			<th>例文</th>
+			<th>メモ</th>
+			<th>イメージ画像</th>
+			<th>ステータス</th>
+			<th>ジャンル</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% words.each do |word| %>
+			<tr>
+				<td ><%= link_to word.name, admins_word_path(word.id) %></td>
+				<td><%= link_to word.part_of_speech_i18n, admins_words_path(part_of_speech: word.part_of_speech), remote: true %></td>
+				<td ><%= word.meaning %></td>
+				<td><%= word.sentence %></td>
+				<td><%= word.memo %></td>
+				<td><%= attachment_image_tag word, :image, fallback: "no-image.png", size:'100x100'%></td>
+                <td><%= link_to word.status_i18n, admins_words_path(status: word.status), remote: true  %></td>
+                <td><%= link_to word.genre, admins_words_path(genre: word.genre), remote: true %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

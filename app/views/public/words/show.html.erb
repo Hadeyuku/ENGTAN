@@ -1,41 +1,5 @@
-<section>
-	<h2>単語詳細</h2>
-	<table class="table-common">
-		<thead>
-			<tr>
-				<th></th>	
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>単語</td>
-				<td><%= @word.name %></td>
-			</tr>
-			<tr>
-				<td>品詞</td>
-				<td><%= @word.part_of_speech_i18n %></td>
-			</tr>
-			<tr>
-				<td>意味</td>
-				<td><%= @word.meaning %></td>
-			</tr>
-			<tr>
-				<td>例文</td>
-				<td><%= @word.sentence %></td>
-			</tr>
-			<tr>
-				<td>メモ</td>
-				<td><%= @word.memo %></td>
-			</tr>
-			<tr>
-				<td>画像</td>
-				<td><%= attachment_image_tag @word, :image, fallback: "no-image.png", size:'100x100' %></td>
-			</tr>
-		</tbody>
-	</table>
-	<div class="flex align-center">
-		<%= link_to "Edit", edit_word_path(@word), class: "btn btn-success show" %>
-		<%= link_to 'Continue to register', new_word_path, class: "btn btn-primary" %>
-	</div>
-</section>
+<div class="inner">
+    <h2>単語一覧</h2>
+    <div id="table"><%= render 'show', word: @word %></div>
+    <%= paginate @words %>
+</div>

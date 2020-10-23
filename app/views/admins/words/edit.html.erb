@@ -1,0 +1,4 @@
+<section>
+	<h2><%= @word.name %>の編集</h2>
+    <%= render 'form', word: @word, url: admins_word_path(@word), submit: '更新' %>
+</section>
