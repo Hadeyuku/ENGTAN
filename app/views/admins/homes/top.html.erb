@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+			<h3>管理者画面</h3>
+			<table class="index">
+				<thead>
+					<tr>
+						<th>会員数</th>	
+					</tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td><%= @customers %></td>
+                    </tr>                
+				</tbody>
+			</table>
+		</div>
+		<div class="col-lg-6">
+			<table class="index">
+				<thead>
+					<tr>
+						<th>総単語数</th>	
+						<th>ENGTAN</th>
+						<th>総SELFTAN</th>
+					</tr>
+				</thead>
+				<tbody>
+                    <tr>
+                        <td><%= @words %></td>
+                        <td><%= @engtan %></td>
+                        <td><%= @selftan %></td>
+                    </tr>                
+				</tbody>
+			</table>
+		</div>
+    </div>
+</div> 

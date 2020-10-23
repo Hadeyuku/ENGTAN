@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     sessions: "customers/sessions",
   }
   namespace :admins do
+    root "homes#top"
     resources :words
     resources :customers, only: [:edit, :update, :index, :show]
   end
