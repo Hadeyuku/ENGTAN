@@ -1,0 +1,8 @@
+<div class="inner">
+    <h2>検索結果</h2>
+    <% if @result.first %>
+        <div id="table"><%= render 'index', customers: @result %></div>
+    <% else %>
+        <h3>ヒットしませんでした。</h3>
+    <% end %>
+</div>

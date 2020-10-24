@@ -1,0 +1,33 @@
+<section>
+	<h2>顧客詳細</h2>
+	<table class="table-common">
+		<thead>
+			<tr>
+				<th></th>	
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>会員ID</td>
+				<td><%= @customer.id %></td>
+			</tr>
+			<tr>
+				<td>名前</td>
+				<td><%= @customer.full_name %></td>
+			</tr>
+			<tr>
+				<td>名前</td>
+				<td><%= @customer.email %></td>
+			</tr>
+			<tr>
+				<td>ステータス</td>
+				<td><%= @customer.status %></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="flex align-center">
+		<%= link_to "Edit", edit_admins_customer_path(@customer), class: "btn btn-success show" %>
+        <%= link_to 'Delete', admins_word_path(@customer), method: :delete, class: "btn btn-primary" %>
+	</div>
+</section>

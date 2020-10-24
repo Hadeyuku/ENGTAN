@@ -66,7 +66,7 @@ class Public::WordsController < ApplicationController
         elsif model == 'meaning'
             Word.where(name: content)
         else
-          [] 
+            [] 
         end
-      end
+    end
 end

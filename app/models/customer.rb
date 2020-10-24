@@ -21,4 +21,8 @@ class Customer < ApplicationRecord
     def complete
       where(status: 'complete')
     end
+
+    def full_name
+      family_name + " " + first_name
+    end
 end

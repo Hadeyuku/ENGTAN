@@ -1,0 +1,30 @@
+<div class="flex space-between word-index">
+	<h3> (全<%= @customers_count %>件)</h3>
+	<h4><%= link_to "Clear the conditions", admins_customers_path, class: "btn btn-primary", remote: true %></h4>
+</div>
+<div class="flex align-left">
+	<%= form_tag(admins_customer_search_path, method: :get) do %>
+		<%= text_field_tag "search[content]", "", :placeholder =>"顧客" %>
+		<%= submit_tag 'Search', class: "btn btn-primary" %>
+	<% end %>
+</div>
+<table class="index">
+	<thead>
+		<tr>
+			<th>会員ID</th>
+			<th>名前</th>
+			<th>メール</th>
+			<th>ステータス</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @customers.each do |customer| %>
+			<tr>
+				<td ><%= link_to customer.id, admins_customer_path(customer.id) %></td>
+				<td><%= link_to customer.full_name, admins_customer_path(customer.id) %></td>
+				<td><%= link_to customer.email, admins_customer_path(customer.id) %></td>
+				<td ><%= customer.status_i18n %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

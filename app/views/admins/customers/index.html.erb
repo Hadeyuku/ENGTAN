@@ -1,0 +1,5 @@
+<div class="inner">
+    <h2>顧客一覧</h2>
+    <div id="table"><%= render 'index', customers: @customers %></div>
+    <%= paginate @customers %>
+</div>
