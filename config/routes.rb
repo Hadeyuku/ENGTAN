@@ -8,6 +8,11 @@ Rails.application.routes.draw do
     registrations: "customers/registrations",
     sessions: "customers/sessions",
   }
+
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'customers/sessions#new_guest'
+  end
+
   namespace :admins do
     root "homes#top"
     get 'word_search' => 'words#search'
@@ -23,6 +28,7 @@ Rails.application.routes.draw do
     get '/mypage' => 'customers#show',as: 'mypage'
     get '/mypage/edit' => 'customers#edit', as: 'edit_customer'
     patch '/mypage' => 'customers#update', as: 'update_customer'
+    post 'customers/guest_sign_in', to: 'customers/sessions#new_guest'
     get 'search' => 'words#search'
     resources :words do
       resource :favorites, only: [:create, :destroy]

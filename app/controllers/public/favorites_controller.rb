@@ -1,4 +1,5 @@
 class Public::FavoritesController < ApplicationController
+    before_action :check_guest, only: [:create, :destroy]
 
     def create
         @word = Word.find(params[:word_id])
@@ -10,5 +11,11 @@ class Public::FavoritesController < ApplicationController
         @word = Word.find(params[:word_id])
         favorite = Favorite.find_by(word_id: params[:word_id], customer_id: current_customer.id)
         favorite.destroy
+    end
+
+    def check_guest
+        if resource.email == 'guest@example.com'
+            redirect_back(fallback_location:), alert: 'ゲストユーザーは削除できません。'
+        end
     end
 end
