@@ -18,13 +18,13 @@
     <div class="row">
         <div class="col-lg-4">
             <h4>1<br>
-                自分だけの単語帳を作る
+                自分だけの単語帳ができる
             </h4>
             <div><%= image_tag(asset_path("vocabulary.jpg"), class:"feature-visual") %></div>
             <div>
                 <h5>
-                    わからない単語をコピペして保存する。<br>
-                    その際に例文や写真、メモ（語呂合わせなど）を一緒に保存すると定着しやすい。
+                    わからない単語をコピペして登録します。<br>
+                    例文、写真、メモも合わせて登録して単語の暗記に役立てましょう。
                 </h5>
             </div>
         </div>
@@ -35,8 +35,8 @@
             <div><%= image_tag(asset_path("test.jpg"), class:"feature-visual") %></div>
             <div>
                 <h5>
-                    お好みの単語を選択し、テストできます。<br>
-                    単語には3つのステータスがあり、テストで正解するごとに更新されます。(新規→暗記中→完了)
+                    単語を選択し、テストします。<br>
+                    単語には3つのステータスがあり、テストで正解するごとに更新されます。(新規→暗記中→完了)<br>
                 </h5>
             </div>
         </div>
@@ -47,13 +47,13 @@
             <div><%= image_tag(asset_path("memory.jpg"), class:"feature-visual") %></div>
             <div>
                 <h5>
-                    Indexページで品詞別に出し分けが可能。<br>
-                    難しいと思った単語にはムズイマークをつけて、復習に役立てられます。
+                    Indexページで品詞別に出し分けが可能です。<br>
+                    難しいと思った単語にはムズイマークをつけて、復習に役立てましょう。
                 </h5>
             </div>
         </div>
     </div>
     <div class="row flex align-center">
-        <%= link_to "Let's get started!!", about_path, class: "btn btn-primary" %>
+        <%= link_to "Let's get started!!", new_customer_registration_path, class: "btn btn-primary" %>
     </div>
 </div>
