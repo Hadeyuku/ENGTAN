@@ -9,6 +9,13 @@ class Public::TestWordsController < ApplicationController
             complete_amount = @words.where(status: 'complete').count
         end
         @complete_amount = complete_amount
+
+        @customer = current_customer
+        if @customer.words.where(status: 'complete').count > 1000
+            @customer.update(status: 'intermidiate')
+        elsif @customer.words.where(status: 'complete').count > 2000
+            @customer.update(status: 'advanced')
+        end
         
     end
     

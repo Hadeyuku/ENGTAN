@@ -220,7 +220,14 @@ footer{
         }
     }
 }
-
+//削除ボタンを離す
 .btn-del{
     margin-left: 30px;
+}
+
+//アラート
+.alert {
+background-color: red;
+color: white;
+text-align: center;  
 }
