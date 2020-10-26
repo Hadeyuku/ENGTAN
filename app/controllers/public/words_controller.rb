@@ -1,5 +1,6 @@
 class Public::WordsController < ApplicationController
-
+    before_action :authenticate_customer!
+    before_action :check_guest, only: [:create, :destroy, :create, :update]
     before_action :ensure_word, only: [:show, :edit, :update, :destroy]
 
     def new

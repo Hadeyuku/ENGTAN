@@ -11,6 +11,10 @@ class Word < ApplicationRecord
     enum status: { registered: 0, ongoing: 1, complete: 2 }
     enum genre: { SELFTAN: 0, ENGTAN: 1 }
 
+    validates :name, presence: true 
+    validates :part_of_speech, presence: true 
+    validates :meaning, presence: true 
+
     def favorited_by?(customer)
         favorites.where(customer_id: customer.id).exists?
     end

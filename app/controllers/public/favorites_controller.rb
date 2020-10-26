@@ -13,9 +13,5 @@ class Public::FavoritesController < ApplicationController
         favorite.destroy
     end
 
-    def check_guest
-        if resource.email == 'guest@example.com'
-            redirect_back(fallback_location:), alert: 'ゲストユーザーは削除できません。'
-        end
-    end
+
 end

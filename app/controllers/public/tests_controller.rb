@@ -1,5 +1,5 @@
 class Public::TestsController < ApplicationController
-
+    before_action :authenticate_customer!
     before_action :ensure_test, only: [:start, :show]
 
     def new

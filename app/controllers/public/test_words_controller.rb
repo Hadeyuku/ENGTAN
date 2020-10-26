@@ -1,4 +1,5 @@
 class Public::TestWordsController < ApplicationController
+    before_action :authenticate_customer!
     def index
         @test = Test.find(params[:test_id])
         @test_words = @test.test_words

@@ -1,6 +1,15 @@
 <section>
     <div class="flex align-center">
         <h3>会員の方はこちらから</h3>
+        <% if @customer.errors.any? %>
+            <div id="error_explanation" class="alert alert-danger">
+                <ul>
+                <% @customer.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+                </ul>
+            </div>
+        <% end %>
     </div>
     <div class="flex align-center">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

@@ -1,4 +1,5 @@
 class Admins::WordsController < ApplicationController
+    before_action :authenticate_admin!
     before_action :ensure_word, only: [:show, :edit, :update, :destroy]
 
     def new
