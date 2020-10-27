@@ -1,7 +1,7 @@
 class Word < ApplicationRecord
     attachment :image
     
-    belongs_to :customer
+    belongs_to :customer, optional: true
     has_many :test_words
     has_many :favorites
     belongs_to :admin, optional: true
