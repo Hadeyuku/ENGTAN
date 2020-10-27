@@ -24,7 +24,7 @@ class Public::TestsController < ApplicationController
         quantity = @test.quantity
 
         if select_status == 'registered' && quantity == 10
-        @words = Word.all.where(status: 'registered').order("RANDOM()").limit(10)
+        @words = Word.all.where(status: 'registered').sample(TEST_WORDS_10)
             if select_genre == 'ENGTAN'
                 @select_words = @words.where(genre: 'ENGTAN')
             elsif select_genre == 'SELFTAN' 
@@ -35,7 +35,7 @@ class Public::TestsController < ApplicationController
         @test.update(quantity: @select_words.count)
 
         elsif select_status == 'registered' && quantity == 50
-        @words = Word.all.where(status: 'registered').order("RANDOM()").limit(50)
+        @words = Word.all.where(status: 'registered').sample(TEST_WORDS_50)
             if select_genre == 'ENGTAN'
                 @select_words = @words.where(genre: 'ENGTAN')
             elsif select_genre == 'SELFTAN' 
@@ -46,7 +46,7 @@ class Public::TestsController < ApplicationController
         @test.update(quantity: @select_words.count)
 
         elsif select_status == 'ongoing' && quantity == 10
-        @words = Word.all.where(status: 'ongoing').order("RANDOM()").limit(10)
+        @words = Word.all.where(status: 'ongoing').sample(TEST_WORDS_10)
             if select_genre == 'ENGTAN'
                 @select_words = @words.where(genre: 'ENGTAN')
             elsif select_genre == 'SELFTAN' 
@@ -57,7 +57,7 @@ class Public::TestsController < ApplicationController
         @test.update(quantity: @select_words.count)
 
         else 
-        @words = Word.all.where(status: 'ongoing').order("RANDOM()").limit(50)
+        @words = Word.all.where(status: 'ongoing').sample(TEST_WORDS_50)
             if select_genre == 'ENGTAN'
                 @select_words = @words.where(genre: 'ENGTAN')
             elsif select_genre == 'SELFTAN' 
@@ -128,4 +128,7 @@ class Public::TestsController < ApplicationController
         @test = Test.find(params[:id])
     end
     
+    TEST_WORDS_10 = 10
+
+    TEST_WORDS_50
 end
