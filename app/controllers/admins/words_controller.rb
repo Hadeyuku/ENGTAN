@@ -23,7 +23,7 @@ class Admins::WordsController < ApplicationController
         else
             @words = all_words.page(params[:page]).per(20)
         end
-        @all_words_count = @words.count
+        @all_words_count = @words.total_count
     end
 
     def show
@@ -64,7 +64,7 @@ class Admins::WordsController < ApplicationController
         if model == 'name'
             Word.where(name: content)
         elsif model == 'meaning'
-            Word.where(name: content)
+            Word.where(meaning: content)
         else
             [] 
         end

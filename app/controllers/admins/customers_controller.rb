@@ -4,7 +4,7 @@ class Admins::CustomersController < ApplicationController
 
     def index
         @customers = Customer.all.page(params[:page])
-        @customers_count = @customers.count
+        @customers_count = @customers.total_count
     end
 
     def show
@@ -13,7 +13,7 @@ class Admins::CustomersController < ApplicationController
     def edit
     end
 
-    def update
+    def update        
         @customer.update(customer_params) ? (redirect_to admins_customer_path(@customer)) : (render :edit)
     end
 
@@ -25,13 +25,13 @@ class Admins::CustomersController < ApplicationController
     def search
         @content = params['search']['content']
         @result = search_for(@content)
-        @all_customers_count = @result.count
+        @customers_count = @result.count
     end
 
     private
 
     def customer_params
-        params.require(:customer).permit(:family_name, :first_name, :status)
+        params.require(:customer).permit(:family_name, :first_name, :email, :status)
     end
 
     def ensure_customer
@@ -39,7 +39,7 @@ class Admins::CustomersController < ApplicationController
     end
 
     def search_for(content)
-        Customer.where(name: content)
+        Customer.where(family_name: content)
     end
 
 end

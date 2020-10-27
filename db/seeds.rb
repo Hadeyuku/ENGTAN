@@ -21,7 +21,7 @@ Word.create!(
 			part_of_speech: 0,
 			status: 0,
 			genre: 1
-		}
+		},
 		{
 			customer_id: 1,
 			name: "inconvenience",
@@ -32,7 +32,7 @@ Word.create!(
 			part_of_speech: 0,
 			status: 0,
 			genre: 1
-		}
+		},
 		{
 			customer_id: 1,
 			name: "preference",
@@ -43,7 +43,7 @@ Word.create!(
 			part_of_speech: 0,
 			status: 0,
 			genre: 1
-		}
+		},
 		{
 			customer_id: 1,
 			name: "array",
@@ -54,7 +54,7 @@ Word.create!(
 			part_of_speech: 0,
 			status: 0,
 			genre: 1
-		}
+		},
 		{
 			customer_id: 1,
 			name: "argument",
@@ -65,7 +65,7 @@ Word.create!(
 			part_of_speech: 0,
 			status: 0,
 			genre: 1
-		}
+		},
 		{
 			customer_id: 1,
 			name: "spec(specification)",
@@ -76,7 +76,7 @@ Word.create!(
 			part_of_speech: 0,
 			status: 0,
 			genre: 1
-		}
+		},
 		{
 			customer_id: 1,
 			name: "variable",
@@ -87,7 +87,7 @@ Word.create!(
 			part_of_speech: 0,
 			status: 0,
 			genre: 1
-		}
+		},
 		{
 			customer_id: 1,
 			name: "develop",
@@ -98,7 +98,7 @@ Word.create!(
 			part_of_speech: 1,
 			status: 0,
 			genre: 1
-		}
+		},
 		{
 			customer_id: 1,
 			name: "verify",
@@ -109,7 +109,7 @@ Word.create!(
 			part_of_speech: 1,
 			status: 0,
 			genre: 1
-		}
+		},
 		{
 			customer_id: 1,
 			name: "initialize",
@@ -120,6 +120,220 @@ Word.create!(
 			part_of_speech: 1,
 			status: 0,
 			genre: 1
+		},
+		{
+			customer_id: 1,
+			name: "fix",
+			meaning: "修正する",
+			sentence: "I can fix a computer",
+			memo: "類義語にmodifyがある",
+			image: File.open("./app/assets/images/fix.png"),
+			part_of_speech: 1,
+			status: 0,
+			genre: 1
+		},
+		{
+			customer_id: 1,
+			name: "configure",
+			meaning: "設定する",
+			sentence: "I will configure my new computer",
+			memo: "configでおなじみ",
+			image: File.open("./app/assets/images/configure.png"),
+			part_of_speech: 1,
+			status: 0,
+			genre: 1
+		},
+		{
+			customer_id: 1,
+			name: "available",
+			meaning: "利用できる",
+			sentence: "Wifi is available in this apartment",
+			memo: "日常生活でもよく使う",
+			image: File.open("./app/assets/images/available.png"),
+			part_of_speech: 2,
+			status: 0,
+			genre: 1
+		},
+		{
+			customer_id: 1,
+			name: "reliable",
+			meaning: "頼りになる",
+			sentence: "Is the source of the information reliable?",
+			memo: "reliable人間になりたい",
+			image: File.open("./app/assets/images/reliable.png"),
+			part_of_speech: 2,
+			status: 0,
+			genre: 1
+		},
+		{
+			customer_id: 1,
+			name: "appropriate",
+			meaning: "適切な",
+			sentence: "This dress is more appropriate for the party.",
+			memo: "動詞で着服するという意味もある",
+			image: File.open("./app/assets/images/appropriate.png"),
+			part_of_speech: 2,
+			status: 0,
+			genre: 1
+		},
+		{
+			customer_id: 1,
+			name: "existing",
+			meaning: "既存の",
+			sentence: "the existing system",
+			memo: "動詞exitの形容詞",
+			image: File.open("./app/assets/images/existing.png"),
+			part_of_speech: 2,
+			status: 0,
+			genre: 1
+		},
+		{
+			customer_id: 1,
+			name: "authenticated",
+			meaning: "本物であることを証明する",
+			sentence: "the authenticated user",
+			memo: "before authenticateで使う",
+			image: File.open("./app/assets/images/authenticate.png"),
+			part_of_speech: 2,
+			status: 0,
+			genre: 1
+		},
+		{
+			customer_id: 1,
+			name: "currently",
+			meaning: "現在",
+			sentence: "She's currently working in our New York office.",
+			memo: "currentで現在の",
+			image: File.open("./app/assets/images/currently.png"),
+			part_of_speech: 3,
+			status: 0,
+			genre: 1
+		},
+		{
+			customer_id: 1,
+			name: "always",
+			meaning: "いつも",
+			sentence: "He is always in a hurry.",
+			memo: "ALWAYS続・三丁目の夕日で馴染みがあるかも",
+			image: File.open("./app/assets/images/always.png"),
+			part_of_speech: 3,
+			status: 0,
+			genre: 1
+		},
+		{
+			customer_id: 1,
+			name: "extremely",
+			meaning: "非常に",
+			sentence: "It is extremely hot today.",
+			memo: "類義語super",
+			image: File.open("./app/assets/images/extremely.png"),
+			part_of_speech: 3,
+			status: 0,
+			genre: 1
+		},
+		{
+			customer_id: 1,
+			name: "conciliatory",
+			meaning: "和解の",
+			sentence: "As a conciliatory gesture, he offered to take his wife to dinner.",
+			memo: "conciliateなだめる",
+			image: File.open("./app/assets/images/extremely.png"),
+			part_of_speech: 2,
+			status: 0,
+			genre: 0
+		},
+		{
+			customer_id: 1,
+			name: "defamatory",
+			meaning: "中傷的な",
+			sentence: "defamatory report",
+			memo: "defame名誉を傷つける",
+			image: File.open("./app/assets/images/defamatory.png"),
+			part_of_speech: 2,
+			status: 0,
+			genre: 0
+		},
+		{
+			customer_id: 1,
+			name: "deferential",
+			meaning: "敬意を表する",
+			sentence: "The younger scientist took a deferential attitude to the professor.",
+			memo: "類義語respectful",
+			image: File.open("./app/assets/images/deferential.png"),
+			part_of_speech: 2,
+			status: 0,
+			genre: 0
+		},
+		{
+			customer_id: 1,
+			name: "despicable",
+			meaning: "卑劣な",
+			sentence: "despicable criminal act",
+			memo: "類義語abominable",
+			image: File.open("./app/assets/images/despicable.png"),
+			part_of_speech: 2,
+			status: 0,
+			genre: 0
+		},
+		{
+			customer_id: 1,
+			name: "baseball",
+			meaning: "野球",
+			sentence: "I watch baseball everyday",
+			memo: "野球よりサッカーが好き",
+			part_of_speech: 0,
+			status: 0,
+			genre: 0
+		},
+		{
+			customer_id: 1,
+			name: "desk",
+			meaning: "机",
+			sentence: "My desk is not stable",
+			memo: "誰もが知ってる単語",
+			part_of_speech: 0,
+			status: 0,
+			genre: 0
+		},
+		{
+			customer_id: 1,
+			name: "laptop",
+			meaning: "ノートパソコン",
+			sentence: "My laptop is mac book air",
+			memo: "膝（lap)の上で使うパソコンだから",
+			part_of_speech: 0,
+			status: 0,
+			genre: 0
+		},
+		{
+			customer_id: 1,
+			name: "stapler",
+			meaning: "ホチキス",
+			sentence: "I borrowed a stapler from my friend",
+			memo: "間違えやすい和製英語",
+			part_of_speech: 0,
+			status: 0,
+			genre: 0
+		},
+		{
+			customer_id: 1,
+			name: "eraser",
+			meaning: "消しゴム",
+			sentence: "I borrowed aｎ eraser from my friend",
+			memo: "間違えやすい和製英語",
+			part_of_speech: 0,
+			status: 0,
+			genre: 0
+		},
+		{
+			customer_id: 1,
+			name: "outlet",
+			meaning: "コンセント",
+			sentence: "Where is an outlet?",
+			memo: "間違えやすい和製英語",
+			part_of_speech: 0,
+			status: 0,
+			genre: 0
 		}
 	]
 )

@@ -1,5 +1,7 @@
 <section>
     <h2>単語一覧</h2>
     <div id="table"><%= render 'index', words: @words %></div>
-    <%= paginate @words %>
+    <div class="flex align-center">
+        <%= paginate @words %>
+    </div>
 </section>

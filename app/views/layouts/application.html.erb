@@ -20,7 +20,7 @@
             <li><%= link_to '単語一覧', admins_words_path %></li>
             <li><%= link_to '単語登録', new_admins_word_path %></li>
             <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
-            <li>  
+            <li class="search">  
                 <%= form_tag(admins_word_search_path, method: :get) do %>
                   <%= text_field_tag "search[content]", "", :placeholder =>"単語 / 意味" %>
                   <%= select_tag "search[model]", options_for_select({ "単語" => "name", "意味" => "meaning" }) %>

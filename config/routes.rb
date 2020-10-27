@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   namespace :admins do
     root "homes#top"
     get 'word_search' => 'words#search'
-    get 'customer_search' => 'customer#search'
+    get 'customer_search' => 'customers#search'
     resources :words
     resources :customers, only: [:edit, :update, :index, :show]
   end
