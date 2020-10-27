@@ -7,7 +7,7 @@ class Public::CustomersController < ApplicationController
         @engtan_words = Word.where(genre: 'ENGTAN')
         @selftan_words = @customer.words.where(genre: 'SELFTAN')
         @total_words = @customer.words
-        @words = @engtan_words.order("RANDOM()").limit(4)
+        @words = @engtan_words.sample(MAX_DISPLAY_RELATED_PRODUCTS)
     end
 
     def edit
@@ -26,4 +26,7 @@ class Public::CustomersController < ApplicationController
     def ensure_customer
         @customer = current_customer
     end
+
+    MAX_DISPLAY_RELATED_PRODUCTS = 4
+    
 end
