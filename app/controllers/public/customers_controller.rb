@@ -5,9 +5,9 @@ class Public::CustomersController < ApplicationController
 
     def show
         @engtan_words = Word.where(genre: 'ENGTAN')
-        @selftan_words = @customer .words.where(genre: 'SELFTAN')
-        @total_words = @customer .words
-        @words = @customer .words.order("RANDOM()").limit(4)
+        @selftan_words = @customer.words.where(genre: 'SELFTAN')
+        @total_words = @customer.words
+        @words = @engtan_words.order("RANDOM()").limit(4)
     end
 
     def edit

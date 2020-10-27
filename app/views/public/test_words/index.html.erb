@@ -41,7 +41,7 @@
 				<tbody>
 					<% @test_words.each do |test_word|  %>
 						<tr>
-							<td><%= test_word.word.name %></td>
+							<td><%= link_to test_word.word.name, word_path(test_word.word.id) %></td>
 							<td><%= test_word.content %></td>
 							<td><%= test_word.word.meaning %></td>
 							<td><%= test_word.status_i18n %></td>

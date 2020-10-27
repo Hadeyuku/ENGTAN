@@ -34,7 +34,7 @@
 			</tr>
 			<tr>
 				<td>ステータス</td>
-				<td><%= link_to word.status_i18n, words_path(status: word.status), remote: true  %></td>
+				<td><%= word.status_i18n %></td>
 			</tr>
 			<tr>
 				<td>ムズい</td>
@@ -44,15 +44,16 @@
 			</tr>
 			<tr>
 				<td>ジャンル</td>
-                <td><%= link_to word.genre, words_path(genre: word.genre), remote: true %></td>
+                <td><%= word.genre %></td>
 			</tr>
 		</tbody>
 	</table>
 	<div class="flex align-center">
+		<%= link_to "Index", words_path(word), class: "btn btn-success show" %>
 		<%= link_to "Edit", edit_word_path(word), class: "btn btn-success show" %>
-		<%= link_to 'Continue to register', new_word_path, class: "btn btn-primary" %>
-		<% if @word.genre == 'SELFTAN' %>
-            <%= link_to 'Delete', admins_word_path(word), method: :delete, class: "btn btn-primary btn-del" %>
+		<%= link_to 'Register', new_word_path, class: "btn btn-primary" %>
+		<% if @word.customer_id == current_customer.id %>
+            <%= link_to 'Delete', word_path(word), method: :delete, class: "btn btn-danger btn-del" %>
         <% end %>
 	</div>
 </section>
