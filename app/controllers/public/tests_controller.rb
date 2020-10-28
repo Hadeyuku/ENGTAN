@@ -33,7 +33,7 @@ class Public::TestsController < ApplicationController
             elsif select_genre == 'SELFTAN' 
                 @select_words = @words.where(genre: 'SELFTAN').sample(TEST_WORDS_10)
             else 
-                @select_words = @words
+                @select_words = @words.sample(TEST_WORDS_10)
             end
         @test.update(quantity: @select_words.count)
 
@@ -44,7 +44,7 @@ class Public::TestsController < ApplicationController
             elsif select_genre == 'SELFTAN' 
                 @select_words = @words.where(genre: 'SELFTAN').sample(TEST_WORDS_50)
             else 
-                @select_words = @words
+                @select_words = @words.sample(TEST_WORDS_50)
             end
         @test.update(quantity: @select_words.count)
 
@@ -55,7 +55,7 @@ class Public::TestsController < ApplicationController
             elsif select_genre == 'SELFTAN' 
                 @select_words = @words.where(genre: 'SELFTAN').sample(TEST_WORDS_10)
             else 
-                @select_words = @words
+                @select_words = @words.sample(TEST_WORDS_10)
             end
         @test.update(quantity: @select_words.count)
 
@@ -66,7 +66,7 @@ class Public::TestsController < ApplicationController
             elsif select_genre == 'SELFTAN' 
                 @select_words = @words.where(genre: 'SELFTAN').sample(TEST_WORDS_50)
             else 
-                @select_words = @words
+                @select_words = @words.sample(TEST_WORDS_50)
             end
         @test.update(quantity: @select_words.count)
 
