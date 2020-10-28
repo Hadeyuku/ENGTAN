@@ -130,5 +130,5 @@ class Public::TestsController < ApplicationController
     
     TEST_WORDS_10 = 10
 
-    TEST_WORDS_50
+    TEST_WORDS_50 = 50
 end
