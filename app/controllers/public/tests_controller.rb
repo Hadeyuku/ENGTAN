@@ -24,44 +24,47 @@ class Public::TestsController < ApplicationController
         quantity = @test.quantity
 
         if select_status == 'registered' && quantity == 10
-        @words = Word.all.where(status: 'registered').sample(TEST_WORDS_10)
+        @words = Word.all.where(status: 'registered')
+        
+        #binding.pry
+        
             if select_genre == 'ENGTAN'
-                @select_words = @words.where(genre: 'ENGTAN')
+                @select_words = @words.where(genre: 'ENGTAN').sample(TEST_WORDS_10)
             elsif select_genre == 'SELFTAN' 
-                @select_words = @words.where(genre: 'SELFTAN')
+                @select_words = @words.where(genre: 'SELFTAN').sample(TEST_WORDS_10)
             else 
                 @select_words = @words
             end
         @test.update(quantity: @select_words.count)
 
         elsif select_status == 'registered' && quantity == 50
-        @words = Word.all.where(status: 'registered').sample(TEST_WORDS_50)
+        @words = Word.all.where(status: 'registered')
             if select_genre == 'ENGTAN'
-                @select_words = @words.where(genre: 'ENGTAN')
+                @select_words = @words.where(genre: 'ENGTAN').sample(TEST_WORDS_50)
             elsif select_genre == 'SELFTAN' 
-                @select_words = @words.where(genre: 'SELFTAN')
+                @select_words = @words.where(genre: 'SELFTAN').sample(TEST_WORDS_50)
             else 
                 @select_words = @words
             end
         @test.update(quantity: @select_words.count)
 
         elsif select_status == 'ongoing' && quantity == 10
-        @words = Word.all.where(status: 'ongoing').sample(TEST_WORDS_10)
+        @words = Word.all.where(status: 'ongoing')
             if select_genre == 'ENGTAN'
-                @select_words = @words.where(genre: 'ENGTAN')
+                @select_words = @words.where(genre: 'ENGTAN').sample(TEST_WORDS_10)
             elsif select_genre == 'SELFTAN' 
-                @select_words = @words.where(genre: 'SELFTAN')
+                @select_words = @words.where(genre: 'SELFTAN').sample(TEST_WORDS_10)
             else 
                 @select_words = @words
             end
         @test.update(quantity: @select_words.count)
 
         else 
-        @words = Word.all.where(status: 'ongoing').sample(TEST_WORDS_50)
+        @words = Word.all.where(status: 'ongoing')
             if select_genre == 'ENGTAN'
-                @select_words = @words.where(genre: 'ENGTAN')
+                @select_words = @words.where(genre: 'ENGTAN').sample(TEST_WORDS_50)
             elsif select_genre == 'SELFTAN' 
-                @select_words = @words.where(genre: 'SELFTAN')
+                @select_words = @words.where(genre: 'SELFTAN').sample(TEST_WORDS_50)
             else 
                 @select_words = @words
             end
