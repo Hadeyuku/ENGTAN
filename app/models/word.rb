@@ -5,6 +5,7 @@ class Word < ApplicationRecord
     has_many :test_words
     has_many :favorites
     belongs_to :admin, optional: true
+    has_many :tags, dependent: :destroy
 
 
     enum part_of_speech: { noun: 0, verb: 1, adjective: 2, adverb: 3, preposition: 4, conjunction: 5, pronoun: 6, interjection: 7 }

@@ -9,6 +9,7 @@ Admin.create!(
 	email: "test_admin@gmail.com",
 	password: "password"
 )
+
 Word.create!(
 	[
 		{
@@ -338,3 +339,13 @@ Word.create!(
 	]
 )
 
+[*(0..30)].each do |i|
+Tag.create!(
+	[
+		{
+			name: "sample",
+			word_id: i
+ 		}
+	]
+)
+end

@@ -9,7 +9,12 @@ class Public::WordsController < ApplicationController
 
     def create
         @word = Word.new(word_params)
-        @word.save ? (redirect_to word_path(@word.id)) : (render :new)
+        @word.save 
+        tags = Vision.get_image_data(@word.image)    
+        tags.each do |tag|
+            @word.tags.create(name: tag)
+        end 
+        redirect_to word_path(@word.id)
         
     end
 

@@ -33,6 +33,13 @@
 				<td><%= attachment_image_tag word, :image, fallback: "no-image.png", size:'100x100' %></td>
 			</tr>
 			<tr>
+				<td>AI解析結果</td>
+				<td><% word.tags.each do |tag| %>
+						<span class="label"><%= tag.name %></span>
+					<% end %>
+				</td>
+			</tr>
+			<tr>
 				<td>ステータス</td>
 				<td><%= word.status_i18n %></td>
 			</tr>
