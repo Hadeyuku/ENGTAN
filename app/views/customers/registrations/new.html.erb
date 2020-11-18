@@ -12,39 +12,39 @@
     <% end %>
   </div>
   <div class="flex align-center">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <table>
-      <tbody>
-        <tr>
-            <td><%= f.label :family_name, "名前（姓）" %></td>
-            <td><%= f.text_field :family_name, autofocus: true %></td>
-        </tr>
-        <tr>
-            <td><%= f.label :first_name, " 名前（名）" %></td>
-            <td><%= f.text_field :first_name, autofocus: true %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :email, "メールアドレス" %></td>
-          <td><%= f.email_field :email, autofocus: true %><td>
-        </tr>
-        <tr>
-          <td><%= f.label :password, "パスワード(6文字以上)" %></td>
-          <% if @minimum_password_length %>
-          <em><% @minimum_password_length %></em>
-          <% end %><br />
-          <td><%= f.password_field :password, autocomplete: "new-password" %></td>
-        </tr>
-        <tr>
-          <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
-          <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-        </tr>
-      </tbody>
-    </table>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <table>
+        <tbody>
+          <tr>
+              <td><%= f.label :family_name, "名前（姓）" %></td>
+              <td><%= f.text_field :family_name, autofocus: true %></td>
+          </tr>
+          <tr>
+              <td><%= f.label :first_name, " 名前（名）" %></td>
+              <td><%= f.text_field :first_name, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :email, "メールアドレス" %></td>
+            <td><%= f.email_field :email, autofocus: true %><td>
+          </tr>
+          <tr>
+            <td><%= f.label :password, "パスワード(6文字以上)" %></td>
+            <% if @minimum_password_length %>
+            <em><% @minimum_password_length %></em>
+            <% end %><br />
+            <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
+            <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="flex align-center">
+            <%= f.submit "Register", class: "btn btn-success btn-lg" %>
+      </div>
+    <% end %>
   </div>
-  <div class="flex align-center">
-        <%= f.submit "Register", class: "btn btn-success btn-lg" %>
-  </div>
-  <% end %>
 </section>
 <div class="container">
   <div class="row">

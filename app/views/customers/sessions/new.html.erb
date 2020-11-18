@@ -12,24 +12,21 @@
         <% end %>
     </div>
     <div class="flex align-center">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <table class="table-lg">
-            <tbody>
-                <tr>
-                    <td><%= f.label :email, "メールアドレス" %></td>
-                    <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-                </tr>
-                <tr> 
-                    <td><%= f.label :password, "パスワード" %></td>
-                    <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="flex align-center"> 
-        <%= f.submit "Log in", class: "btn btn-primary btn-lg"%>
-    </div>
-    <% end %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <table class="table-lg">
+                <tbody>
+                    <tr>
+                        <td><%= f.label :email, "メールアドレス" %></td>
+                        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+                    </tr>
+                    <tr> 
+                        <td><%= f.label :password, "パスワード" %></td>
+                        <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+                    </tr>
+                </tbody>
+            </table>
+            <%= f.submit "Log in", class: "btn btn-primary btn-lg"%>
+        <% end %>
     </div>
     <div class="flex align-center">   
         <h6>

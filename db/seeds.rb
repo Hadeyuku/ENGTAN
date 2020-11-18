@@ -345,7 +345,7 @@ Tag.create!(
 		{
 			name: "sample",
 			word_id: i
- 		}
+		}
 	]
 )
 end
